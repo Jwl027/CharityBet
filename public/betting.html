@@ -26,18 +26,45 @@
 
 
       <div class="slidecontainer">
-       <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-       <p>Value: <span id="demo"></span></p>
+       <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+       <button type="button" class= "slideButton" id = "sl1">Opponent: <span id="demo1"></span> % </button>
+       <button type= "button" class = "slideButton" id = "sl2">Charity: <span id="demo2"></span> % </button>
+       <!--  -->
      </div>
 
      <script>
-         var slider = document.getElementById("myRange");
-         var output = document.getElementById("demo");
-         output.innerHTML = slider.value;
+         var slider1 = document.getElementById("myRange");
+         var slider2 = document.getElementById("myRange");
+         var output1 = document.getElementById("demo1");
+         var output2 = document.getElementById("demo2");
+         output1.innerHTML = slider1.value;
+         output2.innerHTML = 100 - slider2.value;
 
-         slider.oninput = function() {
-           output.innerHTML = this.value;
-         }
+
+         slider1.oninput = function() {
+           // output1.innerHTML = slider1.value;
+           if(slider1.value >= 50) {
+               output1.innerHTML = 100 - slider1.value;
+               output2.innerHTML = slider1.value;
+           } else {
+               output1.innerHTML = slider1.value;
+               output2.innerHTML = 100 - slider1.value;
+           }
+       }
+
+
+
+       // function valueIn() {
+       //     output1.innerHTML = slider1.value;
+       //     return slider1.value;
+       // }
+       //
+       // slider1.oninput = valueIn();
+       // slider2.oninput = valueIn();
+
+         // slider2.oninput = function() {
+           // output2.innerHTML = slider2.value;
+         // }
      </script>
   </body>
 </html>
