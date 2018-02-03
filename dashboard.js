@@ -22,7 +22,7 @@ function creator(){
   			ref =firebase.database().ref().child('users').child(user);
   			ref.child('requests').once('value',snap=>{
   				console.log(snap.val());
-  				
+                //RIght
   				var i = 0;
 
   				snap.forEach(function(child){
@@ -39,15 +39,39 @@ function creator(){
 				var $div5 = $("<div>", {"class": "requestedBetsCharity", "id": "reqBetCharity" + i});
 
 
-				
+
 					//TODO: CHANGE .append text to bet description
 					$($div3).append( $("<h1>", {"class": "requestedBetsDetailsText", "id" : "reqBetDetailsText" + i}).append(child.key)    );
-					//TODO: MAKE BUTTON FCNS ACTUALLY WORK
-					$($div4).append( $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i}).on("click", buttonApprove()) );
-					$($div4).append( $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i}).on("click", buttonDecline()) );
+
+                    var $b1 = $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i});
+                    var $b2 = $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i});
+
+                    var str = $b1.attr('id');
+                    $b1.on("click", function(){
+                        str = str.charAt(str.length - 1);
+                        $("#reqBet" + str).remove();
+                    });
+
+                    function buttonDecline() {
+                        console.log("reqBetDecApprove" + i);
+                        $("#reqBet" + i).remove();
+                    }
+
+                    //TODO: MAKE BUTTON FCNS ACTUALLY WORK
+					$($div4).append( $b2);
+                    $($div4).append($b1);
+                    // $div4.onclick = function() {
+                    //     conosole.log("Onclick");
+                    //     $("reqBetDecDecline" + i).remove();
+                    // };
 					//TODO: MAKE CHARITY NAME ACTUALLY APPEAR
+<<<<<<< HEAD
 					$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append(child.child('Charity').val())    );
 				
+=======
+					$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append("Charity Name")    );
+
+>>>>>>> ac5d87ed7b8682e2b21fb9f47aade6d7066bdfc1
 
 				$div2.append($div3);
 				$div2.append($div4);
@@ -65,7 +89,7 @@ function creator(){
 
   			ref.child('bets').once('value',snap=>{
   				console.log(snap.val());
-  			
+
   				snap.forEach(function(child){
   					console.log(child.val());
   					//console.log(child.key);
@@ -121,7 +145,7 @@ function creator(){
 					$div2.append($divMiddleMan);
 					$div.append($div2);
 					$("#middle").append($div);
-	
+
 
 
 
@@ -129,14 +153,14 @@ function creator(){
 
   				});
 
-  			
-			
+
+
 
   			});
 		//Leftside
 		ref.child('middle').once('value',snap=>{
   			console.log(snap.val());
-  			
+
   			snap.forEach(function(child){
 
   				$container = $("<div>", {"class": "midManContain", "id" : "midManContain" + i});
@@ -164,8 +188,8 @@ function creator(){
 				$("#left").append($container);
   			});
 
-  			
-			
+
+
 
   		});
 		//end of left side
@@ -176,10 +200,10 @@ function creator(){
   		}
 
   	});
-  	
+
   	//need to do async
   	//or put this user stuff inside of onAuthstatechanged
-  	
+
 
 
 	//DYNAMICLLY CREATES CARDS FOR MIDDLE ACTIVE BETS
@@ -240,7 +264,7 @@ function creator(){
 
 	}
 
-	
+
 
 	//Left side
 	for (var i = 0; i < 0; i++) {
@@ -281,6 +305,7 @@ function buttonApprove() {
 	console.log("Approve Bet");
 }
 
-function buttonDecline() {
-	console.log("Decline bet");
+function buttonDecline(str) {
+    console.log("Decline");
+    $(str).remove();
 }
