@@ -76,7 +76,7 @@ function creator(){
 	//DYNAMICLLY CREATES CARDS FOR MIDDLE ACTIVE BETS
 	//TODO
 	//CHANGE I TO ARRAY SIZE OF ACTIVE BETS
-	for(var i = 0; i < 5; i++) {
+	for (var i = 0; i < 5; i++) {
 		// var $divUserName = $("<div>", {"class": "userNameL"});
 		// var $divOponentName = $("<div>", {"class": "userNameR"});
 		var $divDescription = $("<div>", {"class": "description"});
@@ -132,7 +132,7 @@ function creator(){
 	}
 
 	//RIGHT SIDE
-	for(var i = 0; i < 2;i++) {
+	for (var i = 0; i < 2;i++) {
     	var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
 		var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
 		var $div3 = $("<div>", {"class": "requestedBetsDetails", "id": "reqBetDetails" + i});
@@ -158,6 +158,32 @@ function creator(){
 	}
 
 	//Left side
+	for (var i = 0; i < 5; i++) {
+		$container = $("<div>", {"class": "midManContain", "id" : "midManContain" + i});
+		$card = $("<div>", {"class": "midManCard", "id": "midManCard" + i});
+		$user1 = $("<div>", {"class": "minManUser1", "id": "minManUser1" + i});
+		$approve = $("<div>", {"class": "minManApprove", "id": "minManApprove" + i});
+		$user2 = $("<div>", {"class": "minManUser2", "id": "minManUser2" + i});
+
+		//TODO Remove USER1Name  & 2 with actual username
+		$user1.append( $("<h1>", {"class": "minManUser1Text", "id": "minManUser1Text" + i}).append("USER1Name") );
+		$user1.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU1" + i}) );
+
+
+		$user2.append( $("<h1>", {"class": "minManUser2Text", "id": "minManUser2Text" + i}).append("USER2Name") );
+		$user2.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU2" + i}) );
+
+		$approve.append( $("<button>", {"class": "ApproveButton", "id": "ApproveButton" + i}) );
+
+		$card.append($user1);
+		$card.append($approve);
+		$card.append($user2);
+
+		$container.append($card);
+
+		$("#left").append($container);
+
+	}
 
 }
 
