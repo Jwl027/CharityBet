@@ -22,6 +22,27 @@
 
   	});
 
+  	//Testing getting data in arrays!
+  	//Testing getting data in arrays!
+  	document.getElementById('tester').addEventListener('click',e=>{
+  		var ref =firebase.database().ref().child('users').child(user).child('bets');
+  		ref.once('value',snap=>{
+  			console.log(snap.val());
+  			console.log(snap.key);
+  			snap.forEach(function(child){
+  				console.log(child.val());
+  				console.log(child.key);
+  				
+
+
+  			});
+
+
+
+  		});
+
+
+  	});
   	
 
 
@@ -77,6 +98,7 @@
 			ref.child("requests").child(titleBet.value).child('better').set(user);
 			ref.child("requests").child(titleBet.value).child('betty').set(betty.value);
 			ref.child("requests").child(titleBet.value).child('pending').set('pending');
+			ref.child("requests").child(titleBet.value).child('Charity').set(charityOfChoice.value);
 
 		ref = firebase.database().ref().child('users').child(betty.value.substring(0,middleman.value.length-4));
 			ref.child("requests").child(titleBet.value).child('price').child('each').set(moneyBet.value);
@@ -84,6 +106,7 @@
 			ref.child("requests").child(titleBet.value).child('better').set(user);
 			ref.child("requests").child(titleBet.value).child('middle').set(middleman.value);
 			ref.child("requests").child(titleBet.value).child('pending').set('pending');
+			ref.child("requests").child(titleBet.value).child('Charity').set(charityOfChoice.value);
 
   	});
   	//Need a checker for the pending requests!
