@@ -62,8 +62,8 @@ function creator(){
                         console.log("reqBetDecApprove" + i);
                         $("#reqBet" + i).remove();
 
-                        
-                        
+
+
 
                     }
 
