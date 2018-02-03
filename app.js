@@ -76,7 +76,7 @@ function creator(){
 	//DYNAMICLLY CREATES CARDS FOR MIDDLE ACTIVE BETS
 	//TODO
 	//CHANGE I TO ARRAY SIZE OF ACTIVE BETS
-	for(var i = 0; i < 3; i++) {
+	for(var i = 0; i < 5; i++) {
 		// var $divUserName = $("<div>", {"class": "userNameL"});
 		// var $divOponentName = $("<div>", {"class": "userNameR"});
 		var $divDescription = $("<div>", {"class": "description"});
@@ -132,15 +132,20 @@ function creator(){
 	}
 
 	//RIGHT SIDE
-	for(var i = 0; i < 1;i++) {
+	for(var i = 0; i < 2;i++) {
     	var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
 		var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
 		var $div3 = $("<div>", {"class": "requestedBetsDetails", "id": "reqBetDetails" + i});
 		var $div4 = $("<div>", {"class": "requestedBetsDecision", "id": "reqBetDecision" + i});
 		var $div5 = $("<div>", {"class": "requestedBetsCharity", "id": "reqBetCharity" + i});
 
-		
-
+		//TODO: CHANGE .append text to bet description
+		$($div3).append( $("<h1>", {"class": "requestedBetsDetailsText", "id" : "reqBetDetailsText" + i}).append("Req Bet Description")    );
+		//TODO: MAKE BUTTON FCNS ACTUALLY WORK
+		$($div4).append( $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i}).on("click", buttonApprove()) );
+		$($div4).append( $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i}).on("click", buttonDecline()) );
+		//TODO: MAKE CHARITY NAME ACTUALLY APPEAR
+		$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append("Charity Name")    );
 
 		$div2.append($div3);
 		$div2.append($div4);
@@ -152,5 +157,14 @@ function creator(){
 
 	}
 
+	//Left side
 
+}
+
+function buttonApprove() {
+	console.log("Approve Bet");
+}
+
+function buttonDecline() {
+	console.log("Decline bet");
 }
