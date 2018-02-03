@@ -18,4 +18,9 @@
   		var auth = firebase.auth();
   		auth.signInWithEmailAndPassword(txtEmail.value,txtPass.value);
   	});
+
+  	buttonLogin.addEventListener('click',e=>{
+  		var auth = firebase.auth();
+  		auth.signInWithEmailAndPassword(txtEmail.value,txtPass.value);
+  	});
 });
