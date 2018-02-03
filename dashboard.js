@@ -65,13 +65,13 @@ function creator(){
                     //     $("reqBetDecDecline" + i).remove();
                     // };
 					//TODO: MAKE CHARITY NAME ACTUALLY APPEAR
-<<<<<<< HEAD
+
 					$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append(child.child('Charity').val())    );
 				
-=======
+
 					$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append("Charity Name")    );
 
->>>>>>> ac5d87ed7b8682e2b21fb9f47aade6d7066bdfc1
+
 
 				$div2.append($div3);
 				$div2.append($div4);
