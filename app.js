@@ -8,19 +8,44 @@
     	messagingSenderId: "545734531716"
   	};
   	firebase.initializeApp(config);
-
-  	var txtEmail=document.getElementById('');
-  	var txtPass=document.getElementById('');
-  	var buttonSignUp=document.getElementById('');
-  	var buttonLogin=document.getElementById('');
-
-  	buttonLogin.addEventListener('click',e=>{
-  		var auth = firebase.auth();
-  		auth.signInWithEmailAndPassword(txtEmail.value,txtPass.value);
-  	});
+  	console.log('xd');
+  	var txtEmail=document.getElementById('txtEmail');
+  	var txtPass=document.getElementById('txtPass');
+  	var buttonSignUp=document.getElementById('btnSignUp');
+  	var buttonLogin=document.getElementById('btnLogin');
+  	var buttonLogOut=document.getElementById('btnLogOut');
 
   	buttonLogin.addEventListener('click',e=>{
+  		console.log('lel');
   		var auth = firebase.auth();
-  		auth.signInWithEmailAndPassword(txtEmail.value,txtPass.value);
+  		var promise =auth.signInWithEmailAndPassword(txtEmail.value,txtPass.value);
+  		promise.catch(e=> console.log(e.message));
   	});
-});
+
+  	buttonSignUp.addEventListener('click',e=>{
+  		var auth = firebase.auth();
+  		var promise = auth.createUserWithEmailAndPassword(txtEmail.value,txtPass.value);
+  		console.log(txtEmail.value);
+  		console.log(txtPass.value);
+  		promise.catch(e=> console.log(e.message));
+  	});
+
+  	buttonLogOut.addEventListener('click',e=>{
+  		var auth = firebase.auth();
+  		firebase.auth().signOut();
+  	});
+
+
+  	firebase.auth().onAuthStateChanged(firebaseUser=>{
+  		if (firebaseUser) {
+  			console.log(firebaseUser);
+  		}
+  		else{
+  			console.log('not logged in');
+  		}
+
+  	});
+
+
+
+}());
