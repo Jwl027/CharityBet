@@ -18,7 +18,7 @@
     	storageBucket: "",
     	messagingSenderId: "545734531716"
   	};
-  	firebase.initializeApp(config);
+  	//firebase.initializeApp(config);
 </script>
 <body>
 	<div class="box">
@@ -33,23 +33,23 @@
 			<h2>Login</h2>
 		</div>
 
-		<input class = "txtEmail" type = "email" placeholder="Email">
-		<input class = "txtPass" type = "password" placeholder="Password">
+		<input class = "txtEmail" id = "txtEmail" type = "email" placeholder="Email">
+		<input class = "txtPass" id = "txtPass" type = "password" placeholder="Password">
 		<br/>
-		<button class = "btnLogin">Login</button>
+		<button class = "btnLogin" id= "btnLogin">Login</button>
 		<br/>
 
 		<div class="box" id= "signup">
 			<h2>Signup</h2>
 		</div>
 
-		<button class = "btnSignUp">SignUp</button>
+		<button class = "btnSignUp" id = "btnSignUp">SignUp</button>
 		<br/>
 		<br/>
 		<br/>
 		<br/>
 
-		<button class = "btnLogOut">Logout</button>
+		<button class = "btnLogOut"id= "btnLogOut">Logout</button>
 
 	</div>
 

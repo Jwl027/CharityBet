@@ -71,7 +71,7 @@
 
 
   	//Bet portion
-  	var titleBet = ;
+  	var titleBet = document.getElementById('');
   	var requestButton = document.getElementById('');
   	var middleman =document.getElementById('');
   	var betty =document.getElementById('');
@@ -116,7 +116,7 @@
 
   	});
   	//Need a checker for the pending requests!
-
+  	//Or we can check 
 
   	//Requests
 
