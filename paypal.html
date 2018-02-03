@@ -1,41 +1,55 @@
-<!DOCTYPE html>
 
-<head>
-    <meta htto-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src = "https://www.paypalobjects.com/api/checkout.js"></script>
-</head>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
-<body>
+<div id="paypal-button-container"></div>
 
-    <div id="paypal-button-container"></div>
+<script>
 
-    <script>
-        paypal.Button.render({
-            env: 'sandbox',
-            client: {
-                sanbox: 'ATgwDhtbYIFh3_OGQS1tsNJF_4bwbWDFNNx5HXZLyPDlwVvv1qtgIAuH2OV8S1ECvN0Tk0m4NeGjiK2F',
-                production: '<insert production client id>'
-            },
-            commit: true,
+    // Render the PayPal button
 
-            payment: function(data, actions) {
-                return actions.payment.create({
-                    payment: {
-                        transactions: [
-                            {
-                                amount: {total: '0.01', currency: 'USD' }
-                            }
-                        ]
-                    }
-                });
-            },
-            onAuthorize: function(data, actions) {
-                return actions.payment.execute().then(function() {
-                    window.alert('Payment Complete!');
-                });
-            }
-        }, '#paypal-button-container');
-    </script>
+    paypal.Button.render({
 
-</body>
+        // Set your environment
+
+        env: 'sandbox', // sandbox | production
+
+        // Specify the style of the button
+
+        style: {
+            label: 'paypal',
+            size:  'medium',    // small | medium | large | responsive
+            shape: 'rect',     // pill | rect
+            color: 'blue',     // gold | blue | silver | black
+            tagline: false    
+        },
+
+        // PayPal Client IDs - replace with your own
+        // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+
+        client: {
+            sandbox:    'ATgwDhtbYIFh3_OGQS1tsNJF_4bwbWDFNNx5HXZLyPDlwVvv1qtgIAuH2OV8S1ECvN0Tk0m4NeGjiK2F',
+            production: '<insert production client id>'
+        },
+
+        payment: function(data, actions) {
+            return actions.payment.create({
+                payment: {
+                    transactions: [
+                        {
+                            amount: { total: '0.01', currency: 'USD' }
+                        }
+                    ]
+                }
+            });
+        },
+
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function() {
+                window.alert('Payment Complete!');
+            });
+        }
+
+    }, '#paypal-button-container');
+
+</script>
+    
