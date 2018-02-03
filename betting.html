@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Betting</title>
+    <link rel="stylesheet" href="./main.css">
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  </head>
+  <body>
+      <center>
+          <h1>Bets</h1>
+      </center>
+      <!--added by johnson-->
+      <input id="bettyName" type="text" placeholder="Opponent"name="usrname">
+      <input id="middleManName" type="text" placeholder="Middleman"name="usrname">
+      <input id="betTitle" type="text"placeholder="Bet title" name="usrname">
+      <input id="moneyBet" type="text" placeholder="$"name="number">
+      <button type="button" id= "b3"> Send Request</button>
+      <!--box 1 -->
+      <div id="box1" class="boxed">
+          <center>
+              <button type="button" id= "b1"> Middle Man!</button>
+          </center>
+      </div>
+
+      <!--box 2 -->
+      <div id="box2" class="boxed">
+          <center>
+              <button type="button" id= "b2"> Opponent!</button>
+          </center>
+      </div>
+
+
+      <div class="scrollbar" id="scroll">
+            <div class="force-overflow"></div>
+        </div>
+  </body>
+
+  <script src="bet.js"></script>
+
+</html>
