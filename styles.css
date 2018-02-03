@@ -1,3 +1,35 @@
 body.html{
   background:lightblue;
 }
+
+.box {
+  align="left";
+}
+
+h1 {
+  text-align: center;
+  color: green;
+  font-size: 60px;
+}
+
+#login {
+  text-align: center;
+}
+
+#logininput {
+  text-align: center;
+  /* display: flex;
+  justify-content: center; */
+}
+
+#signup {
+  text-align: center;
+}
+
+#signupbox {
+  text-align: center;
+}
+
+#logoutbut{
+  text-align: center;
+}
