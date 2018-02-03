@@ -1,5 +1,117 @@
 // betCount is number of bets currently active
 function creator(){
+	//Firebase code
+	var config = {
+    	apiKey: "AIzaSyBPUnQS_FdP70ras4xGGB20GCezMuy2_kY",
+    	authDomain: "charitybet-c4eb6.firebaseapp.com",
+    	databaseURL: "https://charitybet-c4eb6.firebaseio.com",
+    	projectId: "charitybet-c4eb6",
+    	storageBucket: "",
+    	messagingSenderId: "545734531716"
+  	};
+  	firebase.initializeApp(config);
+
+  	var user ="";
+  	var betArray =[];
+  	var requestArray =[];
+  	var ref='';
+  	firebase.auth().onAuthStateChanged(firebaseUser=>{
+  		if (firebaseUser) {
+  			console.log(firebaseUser.email);
+  			user = firebaseUser.email.substring(0,firebaseUser.email.length-4);
+  			ref =firebase.database().ref().child('users').child(user);
+  			ref.child('requests').once('value',snap=>{
+  				console.log(snap.val());
+  				
+  				var i = 0;
+
+  				snap.forEach(function(child){
+  				console.log(child.key+ "	got none");
+  				//console.log(child.key);
+  				requestArray.push(child.key);
+  				console.log(1);
+
+  				var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
+				var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
+				var $div3 = $("<div>", {"class": "requestedBetsDetails", "id": "reqBetDetails" + i});
+				var $div4 = $("<div>", {"class": "requestedBetsDecision", "id": "reqBetDecision" + i});
+				var $div5 = $("<div>", {"class": "requestedBetsCharity", "id": "reqBetCharity" + i});
+
+
+				
+					//TODO: CHANGE .append text to bet description
+					$($div3).append( $("<h1>", {"class": "requestedBetsDetailsText", "id" : "reqBetDetailsText" + i}).append(child.key)    );
+					//TODO: MAKE BUTTON FCNS ACTUALLY WORK
+					$($div4).append( $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i}).on("click", buttonApprove()) );
+					$($div4).append( $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i}).on("click", buttonDecline()) );
+					//TODO: MAKE CHARITY NAME ACTUALLY APPEAR
+					$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append("Charity Name")    );
+				
+
+				$div2.append($div3);
+				$div2.append($div4);
+				$div2.append($div5);
+
+				$div.append($div2);
+
+				$("#right").append($div);
+  				i++;
+  				});
+
+
+  			});
+  			ref.child('bets').once('value',snap=>{
+  			console.log(snap.val());
+  			
+  			snap.forEach(function(child){
+  				console.log(child.val());
+  				//console.log(child.key);
+  				betArray.push(child.key);
+  				console.log(1);
+  				});
+
+  			//RIGHT SIDE
+			for (var i = 0; i < 0;i++) {
+    			var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
+				var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
+				var $div3 = $("<div>", {"class": "requestedBetsDetails", "id": "reqBetDetails" + i});
+				var $div4 = $("<div>", {"class": "requestedBetsDecision", "id": "reqBetDecision" + i});
+				var $div5 = $("<div>", {"class": "requestedBetsCharity", "id": "reqBetCharity" + i});
+				var ref = firebase.database().ref().child('users').child(user).child('requests');
+
+				ref.once('value',snap=>{
+					console.log(snap.val());
+					//TODO: CHANGE .append text to bet description
+					$($div3).append( $("<h1>", {"class": "requestedBetsDetailsText", "id" : "reqBetDetailsText" + i}).append('')    );
+					//TODO: MAKE BUTTON FCNS ACTUALLY WORK
+					$($div4).append( $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i}).on("click", buttonApprove()) );
+					$($div4).append( $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i}).on("click", buttonDecline()) );
+					//TODO: MAKE CHARITY NAME ACTUALLY APPEAR
+					$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append("Charity Name")    );
+				});
+				$div2.append($div3);
+				$div2.append($div4);
+				$div2.append($div5);
+
+				$div.append($div2);
+
+				$("#right").append($div);
+
+			}
+
+  			});
+  		}
+  		else{
+  			console.log('not logged in');
+  		}
+
+  	});
+  	
+  	//need to do async
+  	//or put this user stuff inside of onAuthstatechanged
+  	
+
+
 	//DYNAMICLLY CREATES CARDS FOR MIDDLE ACTIVE BETS
 	//TODO
 	//CHANGE I TO ARRAY SIZE OF ACTIVE BETS
@@ -58,31 +170,7 @@ function creator(){
 
 	}
 
-	//RIGHT SIDE
-	for (var i = 0; i < 2;i++) {
-    	var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
-		var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
-		var $div3 = $("<div>", {"class": "requestedBetsDetails", "id": "reqBetDetails" + i});
-		var $div4 = $("<div>", {"class": "requestedBetsDecision", "id": "reqBetDecision" + i});
-		var $div5 = $("<div>", {"class": "requestedBetsCharity", "id": "reqBetCharity" + i});
-
-		//TODO: CHANGE .append text to bet description
-		$($div3).append( $("<h1>", {"class": "requestedBetsDetailsText", "id" : "reqBetDetailsText" + i}).append("Req Bet Description")    );
-		//TODO: MAKE BUTTON FCNS ACTUALLY WORK
-		$($div4).append( $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i}).on("click", buttonApprove()) );
-		$($div4).append( $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i}).on("click", buttonDecline()) );
-		//TODO: MAKE CHARITY NAME ACTUALLY APPEAR
-		$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append("Charity Name")    );
-
-		$div2.append($div3);
-		$div2.append($div4);
-		$div2.append($div5);
-
-		$div.append($div2);
-
-		$("#right").append($div);
-
-	}
+	
 
 	//Left side
 	for (var i = 0; i < 3; i++) {

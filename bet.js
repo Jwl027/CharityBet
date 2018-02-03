@@ -98,6 +98,7 @@
 			ref.child("requests").child(titleBet.value).child('better').set(user);
 			ref.child("requests").child(titleBet.value).child('betty').set(betty.value);
 			ref.child("requests").child(titleBet.value).child('pending').set('pending');
+			ref.child("requests").child(titleBet.value).child('Charity').set(charityOfChoice.value);
 
 		ref = firebase.database().ref().child('users').child(betty.value.substring(0,middleman.value.length-4));
 			ref.child("requests").child(titleBet.value).child('price').child('each').set(moneyBet.value);
@@ -105,6 +106,7 @@
 			ref.child("requests").child(titleBet.value).child('better').set(user);
 			ref.child("requests").child(titleBet.value).child('middle').set(middleman.value);
 			ref.child("requests").child(titleBet.value).child('pending').set('pending');
+			ref.child("requests").child(titleBet.value).child('Charity').set(charityOfChoice.value);
 
   	});
   	//Need a checker for the pending requests!
