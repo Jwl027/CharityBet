@@ -1,4 +1,5 @@
 
+
 (function(){
 	var config = {
     	apiKey: "AIzaSyBPUnQS_FdP70ras4xGGB20GCezMuy2_kY",
@@ -73,12 +74,14 @@
 
 }());
 
+
+
 // betCount is number of bets currently active
 function creator(){
 	//DYNAMICLLY CREATES CARDS FOR MIDDLE ACTIVE BETS
 	//TODO
 	//CHANGE I TO ARRAY SIZE OF ACTIVE BETS
-	for(var i = 0; i < 10; i++) {
+	for (var i = 0; i < 5; i++) {
 		// var $divUserName = $("<div>", {"class": "userNameL"});
 		// var $divOponentName = $("<div>", {"class": "userNameR"});
 		var $divDescription = $("<div>", {"class": "description"});
@@ -95,9 +98,9 @@ function creator(){
 		//TODO:CHANGE OPPONENT NAME and MIDDLE MAN NAME DYNAMIC
 		$oponentName.append("OPPENT_NAME_AT_I");
 		$userName.append('USERNAME');
-		$middleManName.append("MIDDLE MAN AT " + i);
-		$description.append("DESCRIPTION AT " + i);
-		$amount.append("AMOUNT AT " + i);
+		$middleManName.append("MIDDLE MAN" + i);
+		$description.append("DESCRIPTION" + i);
+		$amount.append("$ " + i);
 		// $divUserName.append($userName);
 		// $divOponentName.append($oponentName);
 		$divDescription.append($description);
@@ -133,6 +136,66 @@ function creator(){
 
 	}
 
+	//RIGHT SIDE
+	for (var i = 0; i < 2;i++) {
+    	var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
+		var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
+		var $div3 = $("<div>", {"class": "requestedBetsDetails", "id": "reqBetDetails" + i});
+		var $div4 = $("<div>", {"class": "requestedBetsDecision", "id": "reqBetDecision" + i});
+		var $div5 = $("<div>", {"class": "requestedBetsCharity", "id": "reqBetCharity" + i});
+
+		//TODO: CHANGE .append text to bet description
+		$($div3).append( $("<h1>", {"class": "requestedBetsDetailsText", "id" : "reqBetDetailsText" + i}).append("Req Bet Description")    );
+		//TODO: MAKE BUTTON FCNS ACTUALLY WORK
+		$($div4).append( $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i}).on("click", buttonApprove()) );
+		$($div4).append( $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i}).on("click", buttonDecline()) );
+		//TODO: MAKE CHARITY NAME ACTUALLY APPEAR
+		$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append("Charity Name")    );
+
+		$div2.append($div3);
+		$div2.append($div4);
+		$div2.append($div5);
+
+		$div.append($div2);
+
+		$("#right").append($div);
+
+	}
+
+	//Left side
+	for (var i = 0; i < 5; i++) {
+		$container = $("<div>", {"class": "midManContain", "id" : "midManContain" + i});
+		$card = $("<div>", {"class": "midManCard", "id": "midManCard" + i});
+		$user1 = $("<div>", {"class": "minManUser1", "id": "minManUser1" + i});
+		$approve = $("<div>", {"class": "minManApprove", "id": "minManApprove" + i});
+		$user2 = $("<div>", {"class": "minManUser2", "id": "minManUser2" + i});
+
+		//TODO Remove USER1Name  & 2 with actual username
+		$user1.append( $("<h1>", {"class": "minManUser1Text", "id": "minManUser1Text" + i}).append("USER1Name") );
+		$user1.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU1" + i}) );
 
 
+		$user2.append( $("<h1>", {"class": "minManUser2Text", "id": "minManUser2Text" + i}).append("USER2Name") );
+		$user2.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU2" + i}) );
+
+		$approve.append( $("<button>", {"class": "ApproveButton", "id": "ApproveButton" + i}) );
+
+		$card.append($user1);
+		$card.append($approve);
+		$card.append($user2);
+
+		$container.append($card);
+
+		$("#left").append($container);
+
+	}
+
+}
+
+function buttonApprove() {
+	console.log("Approve Bet");
+}
+
+function buttonDecline() {
+	console.log("Decline bet");
 }
