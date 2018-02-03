@@ -10,7 +10,8 @@
   	firebase.initializeApp(config);
   	console.log('xd');
 
-
+  	var user = firebase.auth().currentUser;
+  	console.log(user);
 
 
   	//Login Stuff!
@@ -59,68 +60,7 @@
   	});
 
 
-  	//Storage Firebase!
-  	var dbRefObject = firebase.database().ref().child('object');
-
-  	//First lets do your bet info
-  	//on final button click of the last person it makes a tab for it
-
-
-  	//request  - hard cause access others 
-  	//middleman
-
-
-  	//Bet portion
-  	var titleBet = document.getElementById('');
-  	var requestButton = document.getElementById('');
-  	var middleman =document.getElementById('');
-  	var betty =document.getElementById('');
-  	var moneyBet  =document.getElementById('');
-  	var percentageBet =document.getElementById('');
-  	var charityOfChoice =document.getElementById('');
-  	var currentEmail;
-  	//Click part of request
-  	requestButton.addEventListener('click',e=>{
-  		
-  		var auth = firebase.auth();
-  		var ref = firebase.database().ref().child('users').child(currentEmail);
-            //Sets up money side of bet
-            ref.child("bets").child(titleBet).child('price').child('each').set(moneyBet);
-            ref.child("bets").child(titleBet).child('price').child('percent').set(percentageBet);
-
-            //Check if betty and middle are true for both
-            //One false kicks out from the list
-            //betty
-			ref.child("bets").child(titleBet).child('betty').child('name').set(betty);  
-			ref.child("bets").child(titleBet).child('betty').child('accept').set('pending');
-
-			//middle
-			ref.child("bets").child(titleBet).child('middle').child('name').set(middleman); 
-			ref.child("bets").child(titleBet).child('middle').child('accept').set('pending');
-
-			//Finally add sending the requests!
-		ref = firebase.database().ref().child('users').child(middleman);
-			ref.child("requests").child(titleBet).child('price').child('each').set(moneyBet);
-			ref.child("requests").child(titleBet).child('price').child('percent').set(percentageBet);
-			//set the better and betty for middleman to see
-			ref.child("requests").child(titleBet).child('better').set(currentEmail);
-			ref.child("requests").child(titleBet).child('betty').set(betty);
-			ref.child("requests").child(titleBet).child('pending').set('pending');
-
-		ref = firebase.database().ref().child('users').child(betty);
-			ref.child("requests").child(titleBet).child('price').child('each').set(moneyBet);
-			ref.child("requests").child(titleBet).child('price').child('percent').set(percentageBet);
-			ref.child("requests").child(titleBet).child('better').set(currentEmail);
-			ref.child("requests").child(titleBet).child('middle').set(middleman);
-			ref.child("requests").child(titleBet).child('pending').set('pending');
-
-  	});
-  	//Need a checker for the pending requests!
-  	//Or we can check 
-
-  	//Requests
-
-  	//Middle
+  	
 
 
 
