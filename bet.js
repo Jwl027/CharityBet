@@ -22,6 +22,27 @@
 
   	});
 
+  	//Testing getting data in arrays!
+  	//Testing getting data in arrays!
+  	document.getElementById('tester').addEventListener('click',e=>{
+  		var ref =firebase.database().ref().child('users').child(user).child('bets');
+  		ref.once('value',snap=>{
+  			console.log(snap.val());
+  			console.log(snap.key);
+  			snap.forEach(function(child){
+  				console.log(child.val());
+  				console.log(child.key);
+  				
+
+
+  			});
+
+
+
+  		});
+
+
+  	});
   	
 
 
