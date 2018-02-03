@@ -1,0 +1,65 @@
+body,html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: lightblue;
+}
+h1{
+    margin: 0;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: yellow;
+}
+#buttons{
+    text-align: center;
+}
+#newbet{
+    background: green;
+    height: 20%;
+}
+#left{
+    width: 30%;
+    height: 80%;
+    float: left;
+    background: red;
+}
+#middle{
+    background: purple;
+    width:40%;
+    height: 80%;
+    float: left;
+}
+#right{
+    background: orange;
+    width: 30%;
+    height: 80%;
+    float: right;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.card {
+    padding: 2px 16px;
+    border-radius: 10%;
+    background-color: white;
+}
+
+#leftName{
+    float:left;
+}
+#RightName{
+    float:right;
+}
