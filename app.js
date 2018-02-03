@@ -59,7 +59,7 @@
   			console.log(document.location.href);
   			txtEmail.style.visibility = 'hidden';
   			txtPass.style.visibility = 'hidden';
-  			document.location.href='file:/dashboard.html';
+  			document.location.href='./dashboard.html';
   		}
   		else{
   			console.log('not logged in');

@@ -54,11 +54,17 @@ function creator(){
                     $b1.on("click", function(){
                         str = str.charAt(str.length - 1);
                         $("#reqBet" + str).remove();
+                        console.log("removing from databasex");
+                        firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
                     });
 
                     function buttonDecline() {
                         console.log("reqBetDecApprove" + i);
                         $("#reqBet" + i).remove();
+
+                        
+                        
+
                     }
 
                     //TODO: MAKE BUTTON FCNS ACTUALLY WORK
