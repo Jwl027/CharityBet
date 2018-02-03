@@ -2,31 +2,42 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Betting</title>
+    <title> Betting</title>
     <link rel="stylesheet" href="./main.css">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <!-- <script src="./apBet.js"></script> -->
   </head>
   <body>
       <center>
-          <h1>Bets</h1>
+          <h1> <i class="em em-8ball" id="emoji"></i>Bets <i class="em em-moneybag" id="emoji"></i> </h1>
       </center>
-
-      <!--box 1 -->
-      <div id="box1" class="boxed">
-          <center>
-              <button type="button" id= "b1"> Middle Man!</button>
-          </center>
-      </div>
-
-      <!--box 2 -->
-      <div id="box2" class="boxed">
-          <center>
-              <button type="button" id= "b2"> Opponent!</button>
-          </center>
-      </div>
+      <!--added by johnson-->
+      <input id="bettyName" type="text" placeholder="Opponent"name="usrname">
+      <input id="middleManName" type="text" placeholder="Middleman"name="usrname">
+      <input id="betTitle" type="text"placeholder="Bet title" name="usrname">
+      <input id="moneyBet" type="text" placeholder="$"name="number">
+      <input id="moneyPercent" type="number" placeholder="%"name="number">
+      <input id="charityChoice" type="text"placeholder="Charity">
+      <button type="button" id= "b4" class="button" >  Send Request</button>
+      <button type="button" class="button" id= "b1"> Middle Man!</button>
+      <button type="button" class="button"id= "b2"> Opponent!</button>
+      <button type="button" class="button"id= "b2"> How much? </button>
 
 
-      <div class="scrollbar" id="scroll">
-            <div class="force-overflow"></div>
-        </div>
+      <div class="slidecontainer">
+       <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+       <p>Value: <span id="demo"></span></p>
+     </div>
+
+     <script>
+         var slider = document.getElementById("myRange");
+         var output = document.getElementById("demo");
+         output.innerHTML = slider.value;
+
+         slider.oninput = function() {
+           output.innerHTML = this.value;
+         }
+     </script>
   </body>
 </html>
