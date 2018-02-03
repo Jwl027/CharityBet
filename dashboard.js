@@ -30,7 +30,7 @@ function creator(){
 	              console.log(child.key+ "	got none");
   				 console.log(child.key);
 		          requestArray.push(child.key);
-                 console.log(1);
+                 console.log(child.child('middle').val()+ 	"		test");
 
       				var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
     				var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
@@ -55,7 +55,12 @@ function creator(){
                         str = str.charAt(str.length - 1);
                         $("#reqBet" + str).remove();
                         console.log("removing from databasex");
+                        var midMan = child.child('middle').val();
+                        var betterMan =hild.child('better').val();
                         firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+
+                        firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).remove();
+                        firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
                     });
 
                     function buttonDecline() {
@@ -69,7 +74,7 @@ function creator(){
 
                     //TODO: MAKE BUTTON FCNS ACTUALLY WORK
                     // $($div4).append($text);
-					$($div4).append( $b2);
+					$($div4).append($b2);
                     $($div4).append($b1);
                     // $div4.onclick = function() {
                     //     conosole.log("Onclick");
@@ -100,9 +105,9 @@ function creator(){
 
   				snap.forEach(function(child){
   					console.log(child.val());
-  					//console.log(child.key);
-  					betArray.push(child.key);
-  					console.log(1);
+  					
+  					
+  					console.log(child.child('middle').child('name').val());
 
 
   					// var $divUserName = $("<div>", {"class": "userNameL"});
@@ -119,11 +124,11 @@ function creator(){
 					var $description = $("<h3>", {"class" : "descriptionText", "id" : "description" + i});
 
 					//TODO:CHANGE OPPONENT NAME and MIDDLE MAN NAME DYNAMIC
-					$oponentName.append("OPPENT_NAME_AT_I");
+					$oponentName.append(child.child('betty').child('name').val());
 					$userName.append('USERNAME');
-					$middleManName.append("MIDDLE MAN" + i);
-					$description.append("DESCRIPTION" + i);
-					$amount.append("$ " + i);
+					$middleManName.append(child.child('middle').child('name').val() );
+					$description.append(child.key);
+					$amount.append("$ " + child.child('price').child('each').val());
 					// $divUserName.append($userName);
 					// $divOponentName.append($oponentName);
 					$divDescription.append($description);
@@ -301,6 +306,16 @@ function creator(){
 		$("#left").append($container);
 
 	}
+	document.getElementById('logOutFromDash').addEventListener('click',e=>{
+  		var auth = firebase.auth();
+  		firebase.auth().signOut();
+  		document.location.href='./index.html';
+  	});
+
+  	document.getElementById('newbetButton').addEventListener('click',e=>{
+  		
+  		document.location.href='./betting.html';
+  	});
 
 }
 
