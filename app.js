@@ -56,9 +56,15 @@
   	firebase.auth().onAuthStateChanged(firebaseUser=>{
   		if (firebaseUser) {
   			console.log(firebaseUser);
+  			console.log(document.location.href);
+  			txtEmail.style.visibility = 'hidden';
+  			txtPass.style.visibility = 'hidden';
+  			document.location.href='./dashboard.html';
   		}
   		else{
   			console.log('not logged in');
+  			txtEmail.style.visibility = 'visible';
+  			txtPass.style.visibility = 'visible';
   		}
 
   	});
