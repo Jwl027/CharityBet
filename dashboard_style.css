@@ -44,7 +44,7 @@ div{
     height: 80%;
     float: right;
 }
-.card {
+.card, .requestedBets{
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 #000000;
     transition: 0.3s;
@@ -52,54 +52,22 @@ div{
     margin: 0 auto;
     background: #F9B759;
     height: 20%;
-    /* padding: 2px 16px; */
-    /* border-top: 10; */
+}
+
+.requestedBets{
+    background-color: red;
 }
 /* On mouse-over, add a deeper shadow */
-.card:hover {
+.card:hover, .requestedBetshover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-.description{
-    /* background-color: red; */
-
-}
-.UserNameL{
-    float:left;
-    /* background-color: blue; */
-}
-.amount{
-    float:left;
-    /* background-color: purple; */
-}
-.UserNameR{
-    float:right;
-    /* background-color: pink; */
-}
-.middleMan{
-    /* float: none; */
-    /* background-color: green; */
-}
-
-.inner{
+.inner, .requestedBetsCard{
     height: 100%;
 }
 
 .userNameText, .amountText, .oponentNameText{
     display: inline;
 }
-.userNameText {
-    padding-right: 15%;
-}
-
-.amountText{
-    padding-left: 15%;
-    padding-right: 15%;
-}
-
-.oponentNameText {
-    padding-left: 15%;
-}
-
-.descriptionText{
+.descriptionText, .requestedBetsDetails{
     font-size: 200%;
 }
