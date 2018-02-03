@@ -54,7 +54,7 @@ function creator(){
 	//DYNAMICLLY CREATES CARDS FOR MIDDLE ACTIVE BETS
 	//TODO
 	//CHANGE I TO ARRAY SIZE OF ACTIVE BETS
-	for(var i = 0; i < 5; i++) {
+	for(var i = 0; i < 10; i++) {
 		// var $divUserName = $("<div>", {"class": "userNameL"});
 		// var $divOponentName = $("<div>", {"class": "userNameR"});
 		var $divDescription = $("<div>", {"class": "description"});
