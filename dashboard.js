@@ -55,7 +55,12 @@ function creator(){
                         str = str.charAt(str.length - 1);
                         $("#reqBet" + str).remove();
                         console.log("removing from databasex");
+                        //var midMan = '';
+                        //var betterMan ='';
                         firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+
+                        //firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).remove();
+                        //firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
                     });
 
                     function buttonDecline() {
@@ -100,9 +105,9 @@ function creator(){
 
   				snap.forEach(function(child){
   					console.log(child.val());
-  					//console.log(child.key);
-  					betArray.push(child.key);
-  					console.log(1);
+  					
+  					
+  					console.log(child.child('middle').child('name').val());
 
 
   					// var $divUserName = $("<div>", {"class": "userNameL"});
@@ -119,11 +124,11 @@ function creator(){
 					var $description = $("<h3>", {"class" : "descriptionText", "id" : "description" + i});
 
 					//TODO:CHANGE OPPONENT NAME and MIDDLE MAN NAME DYNAMIC
-					$oponentName.append("OPPENT_NAME_AT_I");
+					$oponentName.append(child.child('betty').child('name').val());
 					$userName.append('USERNAME');
-					$middleManName.append("MIDDLE MAN" + i);
-					$description.append("DESCRIPTION" + i);
-					$amount.append("$ " + i);
+					$middleManName.append(child.child('middle').child('name').val() );
+					$description.append(child.key);
+					$amount.append("$ " + child.child('price').child('each').val());
 					// $divUserName.append($userName);
 					// $divOponentName.append($oponentName);
 					$divDescription.append($description);
@@ -301,6 +306,16 @@ function creator(){
 		$("#left").append($container);
 
 	}
+	document.getElementById('logOutFromDash').addEventListener('click',e=>{
+  		var auth = firebase.auth();
+  		firebase.auth().signOut();
+  		document.location.href='./index.html';
+  	});
+
+  	document.getElementById('newbet').addEventListener('click',e=>{
+  		
+  		document.location.href='./betting.html';
+  	});
 
 }
 
