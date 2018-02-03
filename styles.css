@@ -18,18 +18,47 @@ h1 {
 
 #logininput {
   text-align: center;
-  /* display: flex;
-  justify-content: center; */
+}
+
+.txtEmail {
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.txtPass {
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.btnLogin {
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #signup {
   text-align: center;
 }
 
+.btnSignUp {
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 #signupbox {
   text-align: center;
 }
 
-#logoutbut{
+.btnLogOut{
   text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
