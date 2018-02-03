@@ -20,21 +20,21 @@ h1 {
   text-align: center;
 }
 
-.txtEmail {
+.email {
   text-align: center;
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
 
-.txtPass {
+.pass {
   text-align: center;
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
 
-.btnLogin {
+.buttonLogin {
   text-align: center;
   display: block;
   margin-right: auto;
@@ -45,7 +45,7 @@ h1 {
   text-align: center;
 }
 
-.btnSignUp {
+.buttonSu {
   text-align: center;
   display: block;
   margin-right: auto;
@@ -56,7 +56,7 @@ h1 {
   text-align: center;
 }
 
-.btnLogOut{
+.buttonLogout{
   text-align: center;
   display: block;
   margin-right: auto;
