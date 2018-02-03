@@ -30,7 +30,7 @@ function creator(){
 	              console.log(child.key+ "	got none");
   				 console.log(child.key);
 		          requestArray.push(child.key);
-                 console.log(1);
+                 console.log(child.child('middle').val()+ 	"		test");
 
       				var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
     				var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
@@ -55,12 +55,12 @@ function creator(){
                         str = str.charAt(str.length - 1);
                         $("#reqBet" + str).remove();
                         console.log("removing from databasex");
-                        //var midMan = '';
-                        //var betterMan ='';
+                        var midMan = child.child('middle').val();
+                        var betterMan =hild.child('better').val();
                         firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
 
-                        //firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).remove();
-                        //firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
+                        firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).remove();
+                        firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
                     });
 
                     function buttonDecline() {
@@ -74,7 +74,7 @@ function creator(){
 
                     //TODO: MAKE BUTTON FCNS ACTUALLY WORK
                     // $($div4).append($text);
-					$($div4).append( $b2);
+					$($div4).append($b2);
                     $($div4).append($b1);
                     // $div4.onclick = function() {
                     //     conosole.log("Onclick");
@@ -312,7 +312,7 @@ function creator(){
   		document.location.href='./index.html';
   	});
 
-  	document.getElementById('newbet').addEventListener('click',e=>{
+  	document.getElementById('newbetButton').addEventListener('click',e=>{
   		
   		document.location.href='./betting.html';
   	});
