@@ -31,10 +31,12 @@
 
   	buttonSignUp.addEventListener('click',e=>{
   		var auth = firebase.auth();
+
   		var promise = auth.createUserWithEmailAndPassword(txtEmail.value,txtPass.value).then(function(user){
             console.log('uid',user.uid);
             var ref = firebase.database().ref().child('users');
-            ref.child(user.email).child("email").set(user.email);//This should be
+            var adaptEmail = user.email.substring(0,user.email.length-4);
+            ref.child(adaptEmail).child("email").set(user.email);//This should be
 
         }).catch(e=> {
             console.log(e.message);
