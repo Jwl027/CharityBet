@@ -1,0 +1,31 @@
+<script src = "https://www.paypalobjects.com/api/checkout.js"></script>
+
+<div id="paypal-button-container"></div>
+
+<script>
+    paypal.Button.render({
+        env: 'sandbox',
+        client: {
+            sanbox: 'ATgwDhtbYIFh3_OGQS1tsNJF_4bwbWDFNNx5HXZLyPDlwVvv1qtgIAuH2OV8S1ECvN0Tk0m4NeGjiK2F',
+            production: '<insert production client id>'
+        },
+        commit: true,
+
+        payment: function(data, actions) {
+            return actions.payment.create({
+                payment: {
+                    transactions: [
+                        {
+                            amount: {total: '0.01', currency: 'USD' }
+                        }
+                    ]
+                }
+            });
+        },
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function() {
+                window.alert('Payment Complete!');
+            });
+        }
+    }, '#paypal-button-container');
+</script>
