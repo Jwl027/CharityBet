@@ -68,9 +68,16 @@ function creator(){
 
 		//TODO: CHANGE .append text to bet description
 		$($div3).append( $("<h1>", {"class": "requestedBetsDetailsText", "id" : "reqBetDetailsText" + i}).append("Req Bet Description")    );
-		//TODO: MAKE BUTTON FCNS ACTUALLY WORK
-		$($div4).append( $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i}).on("click", buttonApprove()) );
-		$($div4).append( $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i}).on("click", buttonDecline()) );
+
+        var $buttonDec = $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i});
+        $buttonDec.append("Decline");
+
+        var $buttonAcept = $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i});
+        $buttonAcept.append("Approve");
+
+        //TODO: MAKE BUTTON FCNS ACTUALLY WORK
+		$($div4).append( $buttonAcept ).on("click", buttonApprove());
+		$($div4).append( $buttonDec ).on("click", buttonDecline());
 		//TODO: MAKE CHARITY NAME ACTUALLY APPEAR
 		$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append("Charity Name")    );
 
