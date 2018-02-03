@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 (function(){
 	var config = {
     	apiKey: "AIzaSyBPUnQS_FdP70ras4xGGB20GCezMuy2_kY",
@@ -32,10 +32,10 @@
   	buttonSignUp.addEventListener('click',e=>{
   		var auth = firebase.auth();
   		var promise = auth.createUserWithEmailAndPassword(txtEmail.value,txtPass.value).then(function(user){
-            console.log('uid',user.uid);   
+            console.log('uid',user.uid);
             var ref = firebase.database().ref().child('users');
             ref.child(user.email).child("email").set(user.email);//This should be
-                       
+
         }).catch(e=> {
             console.log(e.message);
         });
@@ -61,7 +61,7 @@
   	});
 
 
-  	
+
 
 
 
@@ -70,64 +70,13 @@
 
 
 }());
-=======
-// (function(){
-// 	var config = {
-//     	apiKey: "AIzaSyBPUnQS_FdP70ras4xGGB20GCezMuy2_kY",
-//     	authDomain: "charitybet-c4eb6.firebaseapp.com",
-//     	databaseURL: "https://charitybet-c4eb6.firebaseio.com",
-//     	projectId: "charitybet-c4eb6",
-//     	storageBucket: "",
-//     	messagingSenderId: "545734531716"
-//   	};
-//   	firebase.initializeApp(config);
-//   	console.log('xd');
-//   	var txtEmail=document.getElementById('txtEmail');
-//   	var txtPass=document.getElementById('txtPass');
-//   	var buttonSignUp=document.getElementById('btnSignUp');
-//   	var buttonLogin=document.getElementById('btnLogin');
-//   	var buttonLogOut=document.getElementById('btnLogOut');
-//
-//   	buttonLogin.addEventListener('click',e=>{
-//   		console.log('lel');
-//   		var auth = firebase.auth();
-//   		var promise =auth.signInWithEmailAndPassword(txtEmail.value,txtPass.value);
-//   		promise.catch(e=> console.log(e.message));
-//   	});
-//
-//   	buttonSignUp.addEventListener('click',e=>{
-//   		var auth = firebase.auth();
-//   		var promise = auth.createUserWithEmailAndPassword(txtEmail.value,txtPass.value);
-//   		console.log(txtEmail.value);
-//   		console.log(txtPass.value);
-//   		promise.catch(e=> console.log(e.message));
-//   	});
-//
-//   	buttonLogOut.addEventListener('click',e=>{
-//   		var auth = firebase.auth();
-//   		firebase.auth().signOut();
-//   	});
-//
-//
-//   	firebase.auth().onAuthStateChanged(firebaseUser=>{
-//   		if (firebaseUser) {
-//   			console.log(firebaseUser);
-//   		}
-//   		else{
-//   			console.log('not logged in');
-//   		}
-//
-//   	});
-//
-//
-//
-// }());
+
 // betCount is number of bets currently active
 function creator(){
 	//DYNAMICLLY CREATES CARDS FOR MIDDLE ACTIVE BETS
 	//TODO
 	//CHANGE I TO ARRAY SIZE OF ACTIVE BETS
-	for(var i = 0; i < 5; i++) {
+	for(var i = 0; i < 10; i++) {
 		// var $divUserName = $("<div>", {"class": "userNameL"});
 		// var $divOponentName = $("<div>", {"class": "userNameR"});
 		var $divDescription = $("<div>", {"class": "description"});
@@ -185,4 +134,3 @@ function creator(){
 
 
 }
->>>>>>> 9659adddbe576d5a5f53f427008cfcd141ead278
