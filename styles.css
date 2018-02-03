@@ -1,5 +1,16 @@
 body.html{
-  background:lightblue;
+  margin:0;
+  padding:0;
+}
+
+.bg {
+  background-image: url('');
+  min-height: 100%;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: repeat-y
+  background-attachment: fixed;
+  animation: animate 15s infinite;
 }
 
 .box {
@@ -7,13 +18,18 @@ body.html{
 }
 
 h1 {
+  font-family: "Comic Sans MS", cursive, sans-serif;
   text-align: center;
   color: green;
-  font-size: 60px;
+  font-size: 70px;
 }
 
 #login {
+  font-size: 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   text-align: center;
+  color: darkblue;
+
 }
 
 #logininput {
@@ -25,6 +41,9 @@ h1 {
   display: block;
   margin-right: auto;
   margin-left: auto;
+  border: 1.5px solid black;
+  padding: 5px 15px;
+  border-radius: 10px;
 }
 
 .pass {
@@ -32,6 +51,9 @@ h1 {
   display: block;
   margin-right: auto;
   margin-left: auto;
+  border: 1.5px solid black;
+  padding: 5px 15px;
+  border-radius: 10px;
 }
 
 .buttonLogin {
@@ -39,9 +61,19 @@ h1 {
   display: block;
   margin-right: auto;
   margin-left: auto;
+  border-radius: 4px;
+  background-color: lightblue;
+  font: normal 15px Tahoma;
+  line-height: 16px;
+  width: 100px;
+  height: 20px;
+
 }
 
 #signup {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 18px;
+  color: darkred;
   text-align: center;
 }
 
@@ -50,6 +82,12 @@ h1 {
   display: block;
   margin-right: auto;
   margin-left: auto;
+  border-radius: 4px;
+  background-color: lightblue;
+  font: normal 14px Tahoma;
+  line-height: 16px;
+  width: 100px;
+  height: 20px;
 }
 
 #signupbox {
@@ -61,4 +99,6 @@ h1 {
   display: block;
   margin-right: auto;
   margin-left: auto;
+  font: normal 12px Tahoma;
+  border-radius: 4px;
 }
