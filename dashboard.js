@@ -20,31 +20,36 @@ function creator(){
   			console.log(firebaseUser.email);
   			user = firebaseUser.email.substring(0,firebaseUser.email.length-4);
   			ref =firebase.database().ref().child('users').child(user);
-  			ref.child('requests').once('value',snap=>{
+            // var i = 0;
+            ref.child('requests').once('value',snap=>{
   				console.log(snap.val());
                 //RIght
   				var i = 0;
 
   				snap.forEach(function(child){
-  				console.log(child.key+ "	got none");
-  				//console.log(child.key);
-  				requestArray.push(child.key);
-  				console.log(1);
+	              console.log(child.key+ "	got none");
+  				 console.log(child.key);
+		          requestArray.push(child.key);
+                 console.log(1);
 
-  				var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
-				var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
-				var $div3 = $("<div>", {"class": "requestedBetsDetails", "id": "reqBetDetails" + i});
-				var $div4 = $("<div>", {"class": "requestedBetsDecision", "id": "reqBetDecision" + i});
-				var $div5 = $("<div>", {"class": "requestedBetsCharity", "id": "reqBetCharity" + i});
+      				var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
+    				var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
+    				var $div3 = $("<div>", {"class": "requestedBetsDetails", "id": "reqBetDetails" + i});
+    				var $div4 = $("<div>", {"class": "requestedBetsDecision", "id": "reqBetDecision" + i});
+    				var $div5 = $("<div>", {"class": "requestedBetsCharity", "id": "reqBetCharity" + i});
 
 
 
 					//TODO: CHANGE .append text to bet description
-					$($div3).append( $("<h1>", {"class": "requestedBetsDetailsText", "id" : "reqBetDetailsText" + i}).append(child.key)    );
+					$($div3).append( $("<h1>", {"class": "requestedBetsDetailsText", "id" : "reqBetDetailsText" + i}).append(child.key + "<br> MODERATOR <br> Opon")    );
+
+                    // var $text = $("<h6>",{"class": "requestModerator", "index":"requestModerator" + i});
 
                     var $b1 = $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i});
                     var $b2 = $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i});
-
+                    $b1.append('Decline');
+                    $b2.append('Approve');
+                    //Deletes Cards
                     var str = $b1.attr('id');
                     $b1.on("click", function(){
                         str = str.charAt(str.length - 1);
@@ -57,6 +62,7 @@ function creator(){
                     }
 
                     //TODO: MAKE BUTTON FCNS ACTUALLY WORK
+                    // $($div4).append($text);
 					$($div4).append( $b2);
                     $($div4).append($b1);
                     // $div4.onclick = function() {
@@ -67,14 +73,16 @@ function creator(){
 					$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append("Charity Name")    );
 
 
-				$div2.append($div3);
-				$div2.append($div4);
-				$div2.append($div5);
+    				$div2.append($div3);
 
-				$div.append($div2);
+    				$div2.append($div5);
+                    $div.append($div2);
+                    $div2.append($div4);
 
-				$("#right").append($div);
-  				i++;
+
+
+    				$("#right").append($div);
+      				i++;
   				});
 
 
