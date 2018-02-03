@@ -41,7 +41,7 @@ div{
     height: 80%;
     float: right;
 }
-.card, .requestedBets{
+.card, .requestedBets, .midManContain{
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 #000000;
     transition: 0.1s;
@@ -55,11 +55,16 @@ div{
     background-color: red;
     margin-top: 30px;
 }
+
+.midManContain{
+    background-color: teal;
+    margin-top: 35px;
+}
 /* On mouse-over, add a deeper shadow */
-.card:hover, .requestedBets:hover {
+.card:hover, .requestedBets:hover, .midManContain:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-.inner, .requestedBetsCard{
+.inner, .requestedBetsCard, .midManCard{
     height: 100%;
 }
 
@@ -68,4 +73,24 @@ div{
 }
 .descriptionText{
     font-size: 200%;
+}
+
+.minManUser1{
+    float: left;
+    margin-top: 10%;
+    width:40%;
+}
+.minManUser2{
+    float: right;
+    margin-top: 10%;
+    width:40%;
+}
+.minManApprove{
+    float: left;
+    width: 10%;
+}
+.ApproveButton{
+    margin-top: 90px;
+    margin-left: 40px;
+    /* margin:0 auto; */
 }
