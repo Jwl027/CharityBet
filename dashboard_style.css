@@ -68,8 +68,21 @@ div{
     height: 100%;
 }
 
-.userNameText, .amountText, .oponentNameText{
+/* .userNameText, .amountText, .oponentNameText{
     display: inline;
+} */
+.usernameText{
+    margin-top:0;
+    margin-bottom: 0;
+    margin-left: 5px;
+    margin-right: 15px;
+}
+.userNameText, .oponentNameText{
+    font-weight: bold;
+    font-style: oblique;
+}
+.amountText{
+    font-weight: lighter;
 }
 .descriptionText{
     font-size: 200%;
@@ -112,4 +125,21 @@ div{
 .details{
     height:30%;
     font-size: 20px;
+}
+
+.userNameDiv, .amountDiv{
+    width:33%;
+    float:left;
+}
+.oponentNameDiv{
+    width:33%;
+    float:right;
+}
+
+.userNameDiv, .oponentNameDiv{
+    font-weight: bold;
+}
+
+.amountDiv{
+    font-weight: bold;
 }
