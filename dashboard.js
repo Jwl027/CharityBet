@@ -373,7 +373,9 @@ function creator(){
 			var i = 0;
 
   			snap.forEach(function(child){
-				// var i = 0;
+
+                console.log(child.key);
+
   				$container = $("<div>", {"class": "lContainer", "id": "lContainer" + i});
 
 				$card = $("<div>", {"class": "lCard", "id": "lCard" + i});
@@ -389,9 +391,9 @@ function creator(){
 				$buttonL = $("<button>", {"class": "buttonL" , "id":"buttonL" + i});
 				$buttonR = $("<button>", {"class": "buttonR" , "id":"buttonR" + i});
 
-				$buttonL.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User LEFT");
+				$buttonL.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append(child.child('better').child('name').val());
 				//Replace last append with datbase info
-				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User Right");
+				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append(child.child('betty').child('name').val());
 
 				var j = $buttonL.attr('id');
 				console.log("WHAT THE " + j);
@@ -421,10 +423,17 @@ function creator(){
 					}
 				});
 
+
+				
+				$buttonL.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append(child.child('better').child('name').val());
+				//Replace last append with datbase info
+				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append(child.child('betty').child('name').val());
+
+
 				$bottomL.append($buttonL);
 				$bottomR.append($buttonR);
 
-				$description.append("BET DESCRIPTION");
+				$description.append(child.key);
 
 				$divBottomDiv.append($bottomL);
 				$divBottomDiv.append($bottomR);
@@ -438,12 +447,14 @@ function creator(){
 
 
 				$("#left").append($container);
+
 				i++;
 				// var str = $approve.attr('id');
 				// var i = str.charAt(str.length-1);
 				// document.getElementById('buttonL' + i).onclick = function() {
 				// 	window.confirm("Are you sure this user is the winner?");
 				// }
+
 
   			});
 

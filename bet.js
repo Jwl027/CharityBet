@@ -24,6 +24,7 @@
 
   	//Testing getting data in arrays!
   	//Testing getting data in arrays!
+    /*
   	document.getElementById('tester').addEventListener('click',e=>{
   		var ref =firebase.database().ref().child('users').child(user).child('bets');
   		ref.once('value',snap=>{
@@ -43,7 +44,7 @@
 
 
   	});
-  	
+  	*/
 
 
   	//Storage Firebase!
@@ -59,7 +60,7 @@
 
   	//Bet portion
   	var titleBet = document.getElementById('betTitle');
-  	var requestButton = document.getElementById('b3');
+  	var requestButton = document.getElementById('b1');
   	var middleman =document.getElementById('middleManName');
   	var betty =document.getElementById('bettyName');
   	var moneyBet = document.getElementById('moneyBet');
@@ -110,6 +111,18 @@
 			ref.child("requests").child(titleBet.value).child('Charity').set(charityOfChoice.value);
 
   	});
+
+
+    document.getElementById('b3').addEventListener('click',e=>{
+      var auth = firebase.auth();
+      firebase.auth().signOut();
+      document.location.href='./index.html';
+      
+    });
+    document.getElementById('b4').addEventListener('click',e=>{
+      document.location.href='./dashboard.html';
+
+    });
   	//Need a checker for the pending requests!
   	//Or we can check 
 
