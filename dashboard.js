@@ -424,6 +424,15 @@ function creator(){
 						console.log(str);
 
 						$(str).remove()
+
+                        console.log(child.key);
+                        var bettyMan=child.child('betty').child('name').val().substring(0,child.child('betty').child('name').val().length-4);
+                        var betterMan =child.child('better').child('name').val().substring(0,child.child('better').child('name').val().length-4);
+                        firebase.database().ref().child('users').child(user).child('middleWork').child(child.key).remove();
+                        firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).remove();
+                        firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).remove();
+
+
 					}
 				});
 
@@ -436,6 +445,14 @@ function creator(){
 						console.log(str);
 
 						$(str).remove()
+
+
+
+                        var bettyMan=child.child('betty').child('name').val().substring(0,child.child('betty').child('name').val().length-4);
+                        var betterMan =child.child('better').child('name').val().substring(0,child.child('better').child('name').val().length-4);
+                        firebase.database().ref().child('users').child(user).child('middleWork').child(child.key).remove();
+                        firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).remove();
+                        firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).remove();
 					}
 				});
 
