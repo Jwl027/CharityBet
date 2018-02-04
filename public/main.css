@@ -24,6 +24,18 @@ h1{
     font-size: 20px;
     float: left;
 }
+#b2 {
+    background-color: #0a6c03; /* Billiard Green */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    border: black;
+    border-width: 70px;
+    color: white;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
 
 #sl1{
     float: left;
@@ -57,6 +69,27 @@ h1{
 #charityChoice {
 
 }
+
+.btn-group button {
+    background-color: #4CAF50; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #3e8e41;
+}
+
+
 .button {
     border-style: solid;
     border-radius: 10px;
