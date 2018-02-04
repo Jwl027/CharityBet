@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./personal_style.css">
+		<title>Resolutions</title>
+	</head>
+	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+	<script>
+  	// Initialize Firebase
+  	var config = {
+    	apiKey: "AIzaSyBPUnQS_FdP70ras4xGGB20GCezMuy2_kY",
+    	authDomain: "charitybet-c4eb6.firebaseapp.com",
+    	databaseURL: "https://charitybet-c4eb6.firebaseio.com",
+    	projectId: "charitybet-c4eb6",
+    	storageBucket: "",
+    	messagingSenderId: "545734531716"
+  	};
+  	//firebase.initializeApp(config);
+  </script>
+  <body>
+    <h1>Personal Resolutions</hi>
+    <div class="container">
+      <div class="container" id="create">
+        <h2> Create new Resolution </h2>
+        <h3>Description</h3>
+        <textarea id="descript" cols="40" rows="5"placeholder="Description"></textarea>
+        <h4> How much would you like to input? </h4>
+        <input id="moneyBet" type="number" placeholder="$"name="number">
+        <h4> How long does this resolution last? </h4>
+        <input id="time" type="number"placeholder="Hours">
+      </br>
+      </br>
+      </br>
+      </br>
+        <button class = "confirmButton"id= "confirm">Confirm</button>
+      </div>
+
+      <div class="container" id="view">
+        <h2> View resolutions </h2>
+      </div>
+
+    </div>
+  </body>
+<html>

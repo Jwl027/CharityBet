@@ -6,6 +6,7 @@ body,html{
 }
 h1{
     margin: 0;
+    height: 35%;
 }
 div{
     text-align: center;
@@ -17,31 +18,74 @@ div{
     /* background: yellow; */
 }
 #buttons{
+
     text-align: center;
 }
 #newbet{
     /* background: green; */
     height: 20%;
 }
+#newbetButton{
+  border-radius: 8px;
+  font: normal 15px Tahoma;
+  line-height: 16px;
+  width: 100px;
+  height: 50px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#newbetButton:hover{
+  background-color: #4CAF50; /* Green */
+    color: white;
+}
+#personalButton{
+  border-radius: 8px;
+  font: normal 15px Tahoma;
+  line-height: 16px;
+  width: 100px;
+  height: 30px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#personalButton:hover{
+  background-color: #4CAF50; /* Green */
+    color: white;
+}
+#logOutFromDash{
+  border-radius: 8px;
+  font: normal 15px Tahoma;
+  line-height: 16px;
+  width: 100px;
+  height: 50px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#logOutFromDash:hover{
+  background-color: #4CAF50; /* Green */
+    color: white;
+}
 #left{
-    width: 30%;
+    width: 32%;
     height: 80%;
     float: left;
     /* background: red; */
 }
 #middle{
     /* background: purple; */
-    width:40%;
+    width:36%;
     height: 80%;
     float: left;
 }
 #right{
     /* background: orange; */
-    width: 30%;
+    width: 32%;
     height: 80%;
     float: right;
 }
-.card, .requestedBets, .midManContain{
+.card, .rContainerDiv, .midManContain{
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 #000000;
     transition: 0.1s;
@@ -60,18 +104,32 @@ div{
     background-color: teal;
     margin-top: 35px;
 }
+.rContainerDiv{
+    margin-top: 30px;
+}
 /* On mouse-over, add a deeper shadow */
-.card:hover, .requestedBets:hover, .midManContain:hover {
+.card:hover, .rContainerDiv:hover, .midManContain:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-.inner, .requestedBetsCard, .midManCard{
+.inner, .rCardDiv, .midManCard{
     height: 100%;
 }
 
-.userNameText, .amountText, .oponentNameText{
-    display: inline;
+
+.usernameText{
+    margin-top:0;
+    margin-bottom: 0;
+    margin-left: 5px;
+    margin-right: 15px;
 }
-.descriptionText{
+.userNameText, .oponentNameText{
+    font-weight: bold;
+    font-style: oblique;
+}
+.amountText{
+    font-weight: lighter;
+}
+.descriptionText, .rDescriptionText{
     font-size: 200%;
 }
 
@@ -103,13 +161,52 @@ div{
 }
 
 .requestedBetsCharity {
-    height: 30%;9
+    height: 30%;
 }
 .reqBetDecApprove, .reqBetDecDecline{
     width: 100px;
     height: 50px;
 }
-.details{
+.details, .rDetailDiv{
     height:30%;
     font-size: 20px;
+}
+
+.userNameDiv, .amountDiv,.rUserName, .rAmount{
+    width:33%;
+    float:left;
+}
+.oponentNameDiv{
+    width:33%;
+    float:right;
+}
+
+.userNameDiv, .oponentNameDiv, .rUserName, .rOpponent{
+    font-weight: bold;
+}
+
+.amountDiv, .rAmount{
+    font-weight: bold;
+}
+.rUserName, .rAmount {
+    width:33%;
+    float:left;
+}
+..rOpponent{
+    width:33%;
+    float:right;
+}
+
+.rMidMan{
+    width: 50%;
+    float:left;
+}
+
+.rCharity{
+    width: 50%;
+    float: right;
+}
+
+.rDetailDiv{
+    margin-top: 5%;
 }
