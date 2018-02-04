@@ -358,9 +358,10 @@ function creator(){
 		//Leftside
 		ref.child('middleWork').once('value',snap=>{
   			console.log(snap.val());
+			var i = 0;
 
   			snap.forEach(function(child){
-
+				// var i = 0;
   				$container = $("<div>", {"class": "lContainer", "id": "lContainer" + i});
 
 				$card = $("<div>", {"class": "lCard", "id": "lCard" + i});
@@ -376,18 +377,31 @@ function creator(){
 				$buttonL = $("<button>", {"class": "buttonL" , "id":"buttonL" + i});
 				$buttonR = $("<button>", {"class": "buttonR" , "id":"buttonR" + i});
 
-				$buttonL.on("click", function() {
-					window.confirm("Are you sure this user is the winner?");
-				});
-
-				$buttonR.on("click", function() {
-					window.confirm("Are you sure this user is the winner?");
-				});
-
-				
 				$buttonL.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User LEFT");
 				//Replace last append with datbase info
 				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User Right");
+
+				var i = $buttonL.attr('id');
+				console.log("WHAT THE " + i);
+				i = i.charAt(i.length - 1);
+
+				$buttonL.on("click", function() {
+					var del = window.confirm("Are you sure  is the winner?");
+					console.log(del);
+					if(del == true) {
+						console.log("here" + i);
+						$($container).remove()
+					}
+				});
+
+				$buttonR.on("click", function() {
+					var del = window.confirm("Are you sure  is the winner?");
+					console.log(del);
+					if(del == true) {
+						console.log("here" + i);
+						$($container).remove()
+					}
+				});
 
 				$bottomL.append($buttonL);
 				$bottomR.append($buttonR);
@@ -406,12 +420,12 @@ function creator(){
 
 
 				$("#left").append($container);
-
-				var str = $approve.attr('id');
-				var i = str.charAt(str.length-1);
-				document.getElementById('buttonL' + i).onclick = function() {
-					window.confirm("Are you sure this user is the winner?");
-				}
+				i++;
+				// var str = $approve.attr('id');
+				// var i = str.charAt(str.length-1);
+				// document.getElementById('buttonL' + i).onclick = function() {
+				// 	window.confirm("Are you sure this user is the winner?");
+				// }
 
   			});
 
