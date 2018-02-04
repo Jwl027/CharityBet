@@ -223,5 +223,26 @@ div{
 }
 
 .buttonL, .buttonR {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #ffffff;
+    background-color: lightblue;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
 
+.buttonL:hover, .buttonR:hover {
+    background-color: #000000;
+}
+
+.buttonL:active, .buttonR:active {
+  background-color: lightblue;
+  box-shadow: 0 5px #666;
+  transform:
 }
