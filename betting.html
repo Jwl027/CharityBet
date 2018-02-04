@@ -35,29 +35,32 @@
             <div class = "left">
                 <button type="button" id="b1" class="button">  Send Request</button>
             </div>
-            <div class = "right">
-                <div class="btn-group">
+            <div class = "right id=""as">
+                <div class="top2">
                     <center>
                       <button id="b2" class="button">Opponent's Mula </button>
                       <button id="b2" class="button"> Charity Donations </button>
-                    </center>
+                  </center>
                 </div>
-                <div id= "line">
-                    <center>
-                        <div>
-                        <button type="button" class= "slideButton" id = "sl1">Opponent: <span id="demo1"></span> % </button>
-                        </div>
-                        <div>
-                        <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
-                        </div>
-                        <div>
-                        <button type= "button" class = "slideButton" id = "sl2">Charity: <span id="demo2"></span> % </button>
-                        </div>
-                    </center>
+                <div class= "line">
+
+                    <div>
+                                <button type="button" class= "slideButton" id = "sl1">Opponent: <span id="demo1"></span> % </button>
+
+                                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+
+                                <button type= "button" class = "slideButton" id = "sl2">Charity: <span id="demo2"></span> % </button>
+
+                    </div>
+
                 </div>
             </div>
         </div>
       </div>
+
+
+
+
       <script>
           var slider = document.getElementById("myRange");
           var output1 = document.getElementById("demo1");
