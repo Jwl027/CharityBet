@@ -28,7 +28,7 @@ function creator(){
 
   				snap.forEach(function(child){
 
-		          requestArray.push(child.key);
+		          
 
 
 				 //Structure
@@ -257,13 +257,29 @@ function creator(){
 
 
 				 $description.append(child.key);
+                 if(child.child('middle').val()==null){
+                    console.log(child.child('betty').val()+"sigh key");
+                    $userName.append(child.child('better').val());
+                    $opponent.append(child.child('betty').val());  
+                    $midMan.append(user+".com"); 
+                 }
+                 else if(child.child('better').val()==null){//challenger
+                    $userName.append(user+".com");
+                    $opponent.append(child.child('betty').child('name').val()); 
+                    $midMan.append(child.child('middle').child('name').val()); 
+                 }
+                 else{
+                    $userName.append(user+".com");
+                    $opponent.append(child.child('better').child('name').val()); 
+                    $midMan.append(child.child('middle').child('name').val()); 
+                 }
+				 
+				 $amount.append(child.child('price').child('each').val());
 
-				 $userName.append("U1");
-				 $amount.append("$Amount");
-				 $opponent.append("O1");
+				 
 
-				 $midMan.append("MM1");
-				 $charity.append("Chartiy");
+				 
+				 $charity.append(child.child('Charity').val());
 
 				 //Connecting
 				 $divDescription.append($description);
@@ -457,6 +473,18 @@ function creator(){
 
   		});
 		//end of left side
+
+
+
+
+
+
+
+
+
+
+
+
 
   		}
   		else{
