@@ -356,7 +356,7 @@ function creator(){
 
   			});
 		//Leftside
-		ref.child('middle').once('value',snap=>{
+		ref.child('middleWork').once('value',snap=>{
   			console.log(snap.val());
 
   			snap.forEach(function(child){
