@@ -377,12 +377,17 @@ function creator(){
 				$buttonR = $("<button>", {"class": "buttonR" , "id":"buttonR" + i});
 
 				$buttonL.on("click", function() {
-					alert("Confirm Left Click");
+					window.confirm("Are you sure this user is the winner?");
 				});
 
 				$buttonR.on("click", function() {
-					alert("Confirm Right Click");
+					window.confirm("Are you sure this user is the winner?");
 				});
+
+				
+				$buttonL.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User LEFT");
+				//Replace last append with datbase info
+				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User Right");
 
 				$bottomL.append($buttonL);
 				$bottomR.append($buttonR);
@@ -401,6 +406,13 @@ function creator(){
 
 
 				$("#left").append($container);
+
+				var str = $approve.attr('id');
+				var i = str.charAt(str.length-1);
+				document.getElementById('buttonL' + i).onclick = function() {
+					window.confirm("Are you sure this user is the winner?");
+				}
+
   			});
 
 
@@ -498,11 +510,8 @@ function creator(){
 		$user2.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU2" + i}) );
 
 		$approve.append( $("<button>", {"class": "ApproveButton", "id": "ApproveButton" + i}) );
-		var str = $approve.attr('id');
-		var i = str.charAt(str.length-1);
-		document.getElementById('ApproveButton' + i).onclick = function() {
-			window.confirm("Are you sure this user is the winner?");
-		}
+
+
 
 		$card.append($user1);
 		$card.append($approve);
