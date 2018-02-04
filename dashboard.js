@@ -383,7 +383,11 @@ function creator(){
 				$buttonR.on("click", function() {
 					alert("Confirm Right Click");
 				});
-
+				//Replace last append with datbase info
+				$buttonL.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User LEFT");
+				//Replace last append with datbase info
+				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User Right");
+				
 				$bottomL.append($buttonL);
 				$bottomR.append($buttonR);
 
