@@ -360,7 +360,7 @@ function creator(){
   			console.log(snap.val());
 
   			snap.forEach(function(child){
-                console.log("IN THE LEFT");
+                console.log(child.key);
   				$container = $("<div>", {"class": "lContainer", "id": "lContainer" + i});
 
 				$card = $("<div>", {"class": "lCard", "id": "lCard" + i});
@@ -385,9 +385,9 @@ function creator(){
 				});
 
 				
-				$buttonL.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User LEFT");
+				$buttonL.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append(child.child('better').child('name').val());
 				//Replace last append with datbase info
-				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User Right");
+				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append(child.child('betty').child('name').val());
 
 				$bottomL.append($buttonL);
 				$bottomR.append($buttonR);
@@ -407,11 +407,8 @@ function creator(){
 
 				$("#left").append($container);
 
-				var str = $approve.attr('id');
-				var i = str.charAt(str.length-1);
-				document.getElementById('buttonL' + i).onclick = function() {
-					window.confirm("Are you sure this user is the winner?");
-				}
+
+				
 
   			});
 
