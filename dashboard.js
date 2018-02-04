@@ -63,7 +63,7 @@ function creator(){
                         firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
                     });
 
-			$b2.on("click"), function(){
+			$b2.on("click", function(){
 						str = str.charAt(str.length - 1);
                         $("#reqBet" + str).remove();
                         console.log("removing from databasex");

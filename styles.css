@@ -65,9 +65,14 @@ h1 {
   background-color: lightblue;
   font: normal 15px Tahoma;
   line-height: 16px;
-  width: 100px;
-  height: 20px;
-
+  width: 130px;
+  height: 30px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.buttonLogin:hover {
+  background-color: grey;
 }
 
 #signup {
@@ -86,9 +91,13 @@ h1 {
   background-color: lightblue;
   font: normal 14px Tahoma;
   line-height: 16px;
-  width: 100px;
-  height: 20px;
+  width: 130px;
+  height: 30px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
+
 
 #signupbox {
   text-align: center;
@@ -101,4 +110,7 @@ h1 {
   margin-left: auto;
   font: normal 12px Tahoma;
   border-radius: 4px;
+}
+.buttonLogout:hover {
+  background-color: grey;
 }
