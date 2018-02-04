@@ -44,7 +44,7 @@ div{
   font: normal 15px Tahoma;
   line-height: 16px;
   width: 100px;
-  height: 30px;
+  height: 50px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -88,7 +88,7 @@ div{
 #Title{
     height: 35%;
 }
-.card, .rContainerDiv, .midManContain{
+.card, .rContainerDiv, .lCard{
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 #000000;
     transition: 0.1s;
@@ -111,10 +111,10 @@ div{
     margin-top: 30px;
 }
 /* On mouse-over, add a deeper shadow */
-.card:hover, .rContainerDiv:hover, .midManContain:hover {
+.card:hover, .rContainerDiv:hover, .lCard:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-.inner, .rCardDiv, .midManCard{
+.inner, .rCardDiv, .lCard{
     height: 100%;
 }
 
