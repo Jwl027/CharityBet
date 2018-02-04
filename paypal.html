@@ -1,59 +1,66 @@
-// The Paypal API takes care of all payment from customer, we just need to login with the sandbox account
-// To do: pass $ amount as a parameter (current default = $0.01)
 
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<!DOCTYPE html>
 
-<div id="paypal-button-container"></div>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+</head>
 
-<script>
-    var betAmount = document.getElementById("moneyBet");
-    var betPercentage = document.getElementById("percentageBet");
-    var totalBet = betAmount * betPercentage;
+<body>
+    <div id="paypal-button-container"></div>
 
-    // Render the PayPal button
+    <script>
+        var bAmount = 30;
+        var bPercent = 0.5;
+        var bTotal = bAmount * bPercent;
 
-    paypal.Button.render({
+        paypal.Button.render({
 
-        // Set your environment
+            env: 'sandbox', // sandbox | production
 
-        env: 'sandbox', // sandbox | production
+            style: {
+                label: 'paypal',
+                color: 'blue',
+                tagline: false
+            },
 
-        // Specify the style of the button
+            // PayPal Client IDs - replace with your own
+            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+            client: {
+                sandbox:    'ATgwDhtbYIFh3_OGQS1tsNJF_4bwbWDFNNx5HXZLyPDlwVvv1qtgIAuH2OV8S1ECvN0Tk0m4NeGjiK2F',
+                production: '<insert production client id>'
+            },
 
-        style: {
-            label: 'paypal',
-            size:  'large',    // small | medium | large | responsive
-            shape: 'rect',     // pill | rect
-            color: 'blue',     // gold | blue | silver | black
-            tagline: false    
-        },
+            // Show the buyer a 'Pay Now' button in the checkout flow
+            commit: true,
 
-        // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+            // payment() is called when the button is clicked
+            payment: function(data, actions) {
 
-        client: {
-            sandbox:    'ATgwDhtbYIFh3_OGQS1tsNJF_4bwbWDFNNx5HXZLyPDlwVvv1qtgIAuH2OV8S1ECvN0Tk0m4NeGjiK2F',
-            production: '<insert production client id>'
-        },
+                // Make a call to the REST api to create the payment
+                return actions.payment.create({
+                    payment: {
+                        transactions: [
+                            {
+                                amount: { total: bTotal, currency: 'USD' }
+                            }
+                        ]
+                    }
+                });
+            },
 
-        payment: function(data, actions) {
-            return actions.payment.create({
-                payment: {
-                    transactions: [
-                        {
-                            amount: { total: totalBet, currency: 'USD' }
-                        }
-                    ]
-                }
-            });
-        },
+            // onAuthorize() is called when the buyer approves the payment
+            onAuthorize: function(data, actions) {
 
-        onAuthorize: function(data, actions) {
-            return actions.payment.execute().then(function() {
-                window.alert('Payment Complete!');
-            });
-        }
+                // Make a call to the REST api to execute the payment
+                return actions.payment.execute().then(function() {
+                    window.alert('Payment Complete!');
+                });
+            }
 
-    }, '#paypal-button-container');
+        }, '#paypal-button-container');
 
-</script>
+    </script>
+</body>
     

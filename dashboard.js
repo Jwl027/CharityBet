@@ -32,73 +32,62 @@ function creator(){
 		          requestArray.push(child.key);
                  console.log(child.child('middle').val()+ 	"		test");
 
-      				var $div = $("<div>", {"class": "requestedBets", "id": "reqBet" + i});
-    				var $div2 = $("<div>", {"class": "requestedBetsCard", "id": "reqBetCard" + i});
-    				var $div3 = $("<div>", {"class": "requestedBetsDetails", "id": "reqBetDetails" + i});
-    				var $div4 = $("<div>", {"class": "requestedBetsDecision", "id": "reqBetDecision" + i});
-    				var $div5 = $("<div>", {"class": "requestedBetsCharity", "id": "reqBetCharity" + i});
+				 //Structure
+				 var $divContainer = $("<div>", {"class": "rContainerDiv", "id": "reqBet" + i});
+
+				 var $divCard = $("<div>", {"class": "rCardDiv", "id": "reqBetCard" + i});
+
+				 //Sub Structures
+				 var $divDescription = $("<div>", {"class": "rDescriptionDiv", "id": "reqBetDetails" + i});
+				 var $divDetails = $("<div>", {"class": "rDetailDiv", "id": "reqBetDecision" + i});
+				 var $divMidMan = $("<div>", {"class": "rMinManDiv", "id": "reqBetCharity" + i});
+
+				 //Components
+				 var $description = $("<h1>", {"class": "rDescriptionText", "id" : "reqBetDetailsText" + i})
+
+				 var $userName = $("<div>", {"class": "rUserName", "id": "rUserName" + i});
+				 var $amount = $("<div>", {"class": "rAmount", "id": "rAmount" + i});
+				 var $opponent = $("<div>", {"class": "rOpponent", "id": "rOpponent" + i});
+
+				 var $midMan = $("<div>", {"class": "rMidMan", "id": "rMidMan" + i});
+				 var $charity = $("<div>", {"class": "rCharity", "id": "rCharity" + i});
+
+				 //Init
+				 $userName.append( $("<h1>", {"class": "rUser", "id": "rUser" + i}) );
+				 $amount.append( $("<h1>", {"class": "rAmountValue", "id": "rAmountVale" + i}) );
+				 $opponent.append( $("<h1>", {"class": "rOp", "id": "rOp" + i}) );
+
+				 $midMan.append( $("<h2>", {"class": "rMidM", "id": "rMidM" + i}) );
+				 $charity.append( $("<h2>", {"class": "rChar", "id": "rChar" + i}) );
 
 
 
-					//TODO: CHANGE .append text to bet description
-					$($div3).append( $("<h1>", {"class": "requestedBetsDetailsText", "id" : "reqBetDetailsText" + i}).append(child.key + "<br> MODERATOR <br> Opon")    );
+				 $description.append(child.key);
 
-                    // var $text = $("<h6>",{"class": "requestModerator", "index":"requestModerator" + i});
+				 $userName.append("U1");
+				 $amount.append("$Amount");
+				 $opponent.append("O1");
 
-                    var $b1 = $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i});
-                    var $b2 = $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i});
-                    $b1.append('Decline');
-                    $b2.append('Approve');
-                    //Deletes Cards
-                    var str = $b1.attr('id');
-                    $b1.on("click", function(){
-                        str = str.charAt(str.length - 1);
-                        $("#reqBet" + str).remove();
-                        console.log("removing from databasex");
-                        var midMan = child.child('middle').val();
-                        var betterMan =child.child('better').val();
-                        firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+				 $midMan.append("MM1");
+				 $charity.append("Chartiy");
 
-                        firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).remove();
-                        firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
-                    });
+				 //Connecting
+				 $divDescription.append($description);
 
-			$b2.on("click", function(){
-						str = str.charAt(str.length - 1);
-                        $("#reqBet" + str).remove();
-                        console.log("removing from databasex");
-					});
+				 $divDetails.append($userName);
+				 $divDetails.append($amount);
+				 $divDetails.append($opponent);
 
-                    function buttonDecline() {
-                        console.log("reqBetDecApprove" + i);
-                        $("#reqBet" + i).remove();
+				 $divMidMan.append($midMan);
+				 $divMidMan.append($charity);
 
+				 $divCard.append($divDescription);
+				 $divCard.append($divDetails);
+				 $divCard.append($divMidMan);
 
+				 $divContainer.append($divCard);
 
-
-                    }
-
-                    //TODO: MAKE BUTTON FCNS ACTUALLY WORK
-                    // $($div4).append($text);
-					$($div4).append($b2);
-                    $($div4).append($b1);
-                    // $div4.onclick = function() {
-                    //     conosole.log("Onclick");
-                    //     $("reqBetDecDecline" + i).remove();
-                    // };
-					//TODO: MAKE CHARITY NAME ACTUALLY APPEAR
-					$($div5).append( $("<h1>", {"class": "requestedBetsCharityText", "id" : "requestedBetsCharityText" + i}).append("Charity Name")    );
-
-
-    				$div2.append($div3);
-
-    				$div2.append($div5);
-                    $div.append($div2);
-                    $div2.append($div4);
-
-
-
-    				$("#right").append($div);
+				$("#right").append($divContainer);
       				i++;
   				});
 
@@ -106,70 +95,73 @@ function creator(){
   			});
 
 
-  			ref.child('bets').once('value',snap=>{
-  				console.log(snap.val());
+			//MIDDLE
+			ref.child('bets').once('value',snap=>{
+			    console.log(snap.val());
 
-  				snap.forEach(function(child){
-  					console.log(child.val());
-
-
-  					console.log(child.child('middle').child('name').val());
+			    snap.forEach(function(child){
+			        console.log(child.val());
 
 
-  					// var $divUserName = $("<div>", {"class": "userNameL"});
-					// var $divOponentName = $("<div>", {"class": "userNameR"});
-					var $divDescription = $("<div>", {"class": "description"});
-					var $divMiddleMan = $("<div>", {"class": "middleMan"});
-					// var $divAmount = $("<div>", {"class": "amount"});
-					var $divDetails = $("<div>", {"class": "details"});
-
-					var $userName = $("<h3>", {"class": "userNameText"});
-					var $oponentName = $("<h3>", {"class": "oponentNameText"});
-					var $middleManName = $("<h3>", {"class": "middleManText"});
-					var $amount = $("<h3>", {"class": "amountText","id" : "amount" + i});
-					var $description = $("<h3>", {"class" : "descriptionText", "id" : "description" + i});
-
-					//TODO:CHANGE OPPONENT NAME and MIDDLE MAN NAME DYNAMIC
-					$oponentName.append(child.child('betty').child('name').val());
-					$userName.append('USERNAME');
-					$middleManName.append(child.child('middle').child('name').val() );
-					$description.append(child.key);
-					$amount.append("$ " + child.child('price').child('each').val());
-					// $divUserName.append($userName);
-					// $divOponentName.append($oponentName);
-					$divDescription.append($description);
-					// $divAmount.append($amount);
-					$divMiddleMan.append($middleManName);
-
-					//TODO: CHANGE DESCRIPTION DYNAMIC
-					//		Change AMOUNT DYNAMIC
-
-					$divDetails.append($userName);
-					$divDetails.append($amount);
-					$divDetails.append($oponentName);
+			        console.log(child.child('middle').child('name').val());
 
 
-					var $div = $("<div>", {id: "card" + i, "class": "card"});
-					var $div2 = $("<div>", {id: "innerCard" + i, "class": "inner"});
+			        // var $divUserName = $("<div>", {"class": "userNameL"});
+			        // var $divOponentName = $("<div>", {"class": "userNameR"});
+			        var $divDescription = $("<div>", {"class": "description"});
+			        var $divMiddleMan = $("<div>", {"class": "middleMan"});
+			        // var $divAmount = $("<div>", {"class": "amount"});
+			        var $divDetails = $("<div>", {"class": "details"});
 
-					// $div2.append($divDescription);
+			        var $userName = $("<div>", {"class": "userNameDiv"});
+			        var $oponentName = $("<div>", {"class": "oponentNameDiv"});
+			        var $middleManName = $("<h4>", {"class": "middleManText", "id": "oponentNameTextInner" + i} );
+			        var $amount = $("<div>", {"class": "amountDiv","id" : "amountDiv" + i});
+			        var $description = $("<h3>", {"class" : "descriptionText", "id" : "description" + i});
 
-					// $div2.append($divUserName);
-					// $div2.append($divAmount);
-					// $div2.append($divOponentName);
+			        $userName.append( $("<h1>"), {"class": "userNameTextInner",
+			    "id": "userNameTextInner" + i} );
+			        $oponentName.append( $("<h1>"), {"class": "oponentNameText",
+			    "id": "oponentNameTextInner" + i} );
+			// 		$middleManName.append( $("<h3>"), {"class": "middleManText",
+			// "id": "middleManText" + i} );
+			        $amount.append( $("<h1>"), {"class": "amountText",
+			    "id": "amountText" + i} );
+			        //TODO:CHANGE OPPONENT NAME and MIDDLE MAN NAME DYNAMIC
+			        $oponentName.append(child.child('betty').child('name').val());
+			        $userName.append('USERNAME');
+			        $middleManName.append(child.child('middle').child('name').val() );
+			        $description.append(child.key);
+			        $amount.append("$ " + child.child('price').child('each').val());
+			        // $divUserName.append($userName);
+			        // $divOponentName.append($oponentName);
+			        $divDescription.append($description);
+			        // $divAmount.append($amount);
+			        $divMiddleMan.append($middleManName);
+
+			        //TODO: CHANGE DESCRIPTION DYNAMIC
+			        //		Change AMOUNT DYNAMIC
+
+			        $divDetails.append($userName);
+			        $divDetails.append($amount);
+			        $divDetails.append($oponentName);
 
 
-					$div2.append($divDescription);
-					$div2.append($divDetails);
-					$div2.append($divMiddleMan);
-					$div.append($div2);
-					$("#middle").append($div);
+			        var $div = $("<div>", {id: "card" + i, "class": "card"});
+			        var $div2 = $("<div>", {id: "innerCard" + i, "class": "inner"});
+
+			        // $div2.append($divDescription);
+
+			        // $div2.append($divUserName);
+			        // $div2.append($divAmount);
+			        // $div2.append($divOponentName);
 
 
-
-
-
-
+			        $div2.append($divDescription);
+			        $div2.append($divDetails);
+			        $div2.append($divMiddleMan);
+			        $div.append($div2);
+			        $("#middle").append($div);
   				});
 
 
