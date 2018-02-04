@@ -100,12 +100,14 @@ h1{
     font-size: 20px;
     float: left;
 }
-#b3 {
+#b3, #b4 {
     background-color: #2e316b;
     background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
     color: white;
     border-width: 10%;
+    font-size: 16px;
 }
+
 .slideButton {
     background-color: #000000; /* Green */
     border: none;
@@ -151,6 +153,9 @@ h1{
 
 }
 
+.upper {
+    font-size : 16px;
+}
 
 
 .btn-group button {
