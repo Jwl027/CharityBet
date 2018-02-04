@@ -6,7 +6,7 @@ body,html{
 }
 h1{
     margin: 0;
-    height: 35%;
+    /* height: 35%; */
 }
 div{
     text-align: center;
@@ -84,6 +84,9 @@ div{
     width: 32%;
     height: 80%;
     float: right;
+}
+#Title{
+    height: 35%;
 }
 .card, .rContainerDiv, .midManContain{
     /* Add shadows to create the "card" effect */
