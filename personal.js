@@ -118,7 +118,20 @@
   		else{
   			
   		}
+
+
+      document.getElementById('logout').addEventListener('click',e=>{
+      var auth = firebase.auth();
+      firebase.auth().signOut();
+      document.location.href='./index.html';
+    });
+
+document.getElementById('dash').addEventListener('click',e=>{
+      
+      document.location.href='./dashboard.html';
+    });
   	});
+
 
 }());
 
