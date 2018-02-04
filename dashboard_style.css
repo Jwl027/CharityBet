@@ -39,6 +39,20 @@ div{
   background-color: #4CAF50; /* Green */
     color: white;
 }
+#personalButton{
+  border-radius: 8px;
+  font: normal 15px Tahoma;
+  line-height: 16px;
+  width: 100px;
+  height: 30px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#personalButton:hover{
+  background-color: #4CAF50; /* Green */
+    color: white;
+}
 #logOutFromDash{
   border-radius: 8px;
   font: normal 15px Tahoma;
