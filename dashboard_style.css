@@ -75,7 +75,17 @@ div{
     height: 80%;
     float: right;
 }
-.card, .rContainerDiv, .lContainer{
+
+.rContainerDiv{
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px 0 #000000;
+    transition: 0.1s;
+    width: 90%;
+    background: #F9B759;
+    height: 20%;
+}
+
+.card, .lContainer{
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 #000000;
     transition: 0.1s;
@@ -153,4 +163,11 @@ div{
 .lDivDescription{
     margin-top: 35px;
     margin-bottom: 50px;
+}
+.rButtonDiv{
+    display: inline-block;
+}
+.button1,.button2{
+    width:50%;
+    display: inline-block;
 }
