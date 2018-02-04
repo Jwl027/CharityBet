@@ -20,6 +20,18 @@
   	//firebase.initializeApp(config);
 </script>
 
+
+	<script>
+		// Get the modal
+		var modal = document.getElementById('id01');
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		    // if (event.target == modal) {
+		    //     modal.style.display = "none";
+		    // }
+		}
+	</script>
 <body>
 	<a href="betting.html"><button>Go To Login</button></a>
 	<a href="dashboard.html"><button>Go To dash</button></a>
@@ -34,7 +46,7 @@
 		</div>
 
 		<input class = "email" id = "txtEmail" type = "email" placeholder="Email">
-		<input class = "pass" id = "txtPass" type = "password" placeholder="Password">
+		<input class = "pass" id = "txtPass" type = "passwor" placeholder="Password">
 		<br/>
 		<button class = "buttonLogin" id= "btnLogin">Login</button>
 		<br/>
@@ -57,41 +69,41 @@
 					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">
 						&times;
 					</span>
-					<img src="img_avatar2.png" alt="Avatar" class="avatar">
+					<!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
 
 				</div>
 
 				<div class="container">
-					<label><b>Username</b></label>
-					<input type="text" placeholder="Enter Username" name="uname" required>
+					<label><b>Email</b></label>
+					<input type="text" placeholder="Enter Email" name="uname" required>
 
 					<label><b>Password</b></label>
 
+
 					<input type="password" placeholder="Enter Password" name="psw" required>
+
+					<label><b></b></label>
+
+					<input type="password" placeholder="Renter Password" name="psw" required>
 
 					<button type="submit">Login</button>
 
-					<label>
+					<!-- <label>
 						<input type="checkbox" checked="checked"> Remember me
-					</label>
+					</label> -->
 				</div>
 
 				<div class="container" style="background-color:#f1f1f1">
 					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
 						Cancel
 					</button>
-					<span class="psw">Forgot <a href="#">password?</a></span>
+					<!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
 				</div>
 			</form>
 		</div>
 
-<<<<<<< HEAD
-		<button class = "buttonSu" id = "btnSignUp" >SignUp</button>
-		<div class="popupSu" onclick="myFunction()">
-=======
 
 		<!-- <div class="popupSu" onclick="myFunction()">
->>>>>>> 9c367a50bb7a0085360398149442e181787321b7
   		<span class="popupSuText" id="myPopup">
 				<script>
 					// var str = $buttonSu.attr('id');
@@ -102,7 +114,6 @@
 						var user = prompt("Please enter a desired username", "");
 						var password = prompt("Please enter a password", "");
 						var password2 = prompt("Please reenter your password", "");
-
 			  	}
 				</script>
 
