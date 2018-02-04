@@ -6,7 +6,7 @@ body,html{
 }
 h1{
     margin: 0;
-    height: 35%;
+    /* height: 35%; */
 }
 div{
     text-align: center;
@@ -85,7 +85,10 @@ div{
     height: 80%;
     float: right;
 }
-.card, .rContainerDiv, .midManContain{
+#Title{
+    height: 35%;
+}
+.card, .rContainerDiv, .lCard{
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 #000000;
     transition: 0.1s;
@@ -108,10 +111,10 @@ div{
     margin-top: 30px;
 }
 /* On mouse-over, add a deeper shadow */
-.card:hover, .rContainerDiv:hover, .midManContain:hover {
+.card:hover, .rContainerDiv:hover, .lCard:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-.inner, .rCardDiv, .midManCard{
+.inner, .rCardDiv, .lCard{
     height: 100%;
 }
 
