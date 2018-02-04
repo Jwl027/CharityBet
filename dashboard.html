@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./dashboard_style.css">
-    <script src="./app.js"></script>
+    <script src="./dashboard.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
     <title>DashBoard</title>
   </head>
   <body onload="creator()">
     <div class="container">
         <div class="container" id="newbet">
                 <h1> Start New Bet!</h1>
-                <button id="newbet">new bet</button>
+                <button id="newbetButton">New Bet</button>
+                <button id="logOutFromDash">Log Out</button>
         </div>
 
         <div class="container" id="left">
