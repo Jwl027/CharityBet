@@ -560,12 +560,3 @@ function creator(){
   	});
 
 }
-
-// function buttonApprove() {
-// 	console.log("Approve Bet");
-// }
-//
-// function buttonDecline(str) {
-//     console.log("Decline");
-//     $(str).remove();
-// }

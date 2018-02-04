@@ -112,6 +112,7 @@ div{
 }
 /* On mouse-over, add a deeper shadow */
 .card:hover, .rContainerDiv:hover, .lContainer:hover {
+
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .inner, .rCardDiv, .lcard{
@@ -245,4 +246,12 @@ div{
   background-color: lightblue;
   box-shadow: 0 5px #666;
   transform:
+}
+.button1{
+    width:50%;
+    float:left;
+}
+.button2 {
+    width: 50%;
+    float: left;
 }
