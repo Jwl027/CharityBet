@@ -400,7 +400,7 @@ function creator(){
 				$container.append($card);
 
 
-				$("#left").append($card);
+				$("#left").append($container);
   			});
 
 
