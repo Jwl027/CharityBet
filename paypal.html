@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <head>
@@ -46,7 +45,26 @@
                                 amount: { total: bTotal, currency: 'USD' }
                             }
                         ]
+                    },
+                    description: "Charity Bet",
+                    item_list:
+                    {
+                        items: [
+                        {
+                            name: "Charity Bet Placement",
+                            description: " ",
+                            price: bTotal,
+                            currency: 'USD',
+                            tax: 0,
+                            quantity: 1
+                        }]
+                    },
+                    experience: {
+                        input_fields: {
+                            no_shipping: 1
+                        }
                     }
+
                 });
             },
 

@@ -27,10 +27,9 @@ function creator(){
   				var i = 0;
 
   				snap.forEach(function(child){
-	              console.log(child.key+ "	got none");
-  				 console.log(child.key);
+	              
 		          requestArray.push(child.key);
-                 console.log(child.child('middle').val()+ 	"		test");
+                 
 
 				 //Structure
 				 var $divContainer = $("<div>", {"class": "rContainerDiv", "id": "reqBet" + i});
@@ -49,6 +48,193 @@ function creator(){
 				 var $amount = $("<div>", {"class": "rAmount", "id": "rAmount" + i});
 				 var $opponent = $("<div>", {"class": "rOpponent", "id": "rOpponent" + i});
 
+
+                    var $b1 = $("<button>", {"class": "reqBetDecDecline", "id" : "reqBetDecDecline" + i});
+                    var $b2 = $("<button>", {"class": "reqBetDecApprove", "id" : "reqBetDecApprove" + i});
+                    $b1.append('Decline');
+                    $b2.append('Approve');
+                    //Deletes Cards
+                    var str = $b1.attr('id');
+                    $b1.on("click", function(){
+                        str = str.charAt(str.length - 1);
+                        $("#reqBet" + str).remove();
+                        
+                        //Need a way to see if this is a middle or a 
+                        if(child.child('middle').val()==null){
+                        	console.log("this is the mid");
+                        	var bettyMan=child.child('betty').val().substring(0,child.child('betty').val().length-4);
+                        	var betterMan =child.child('better').val().substring(0,child.child('better').val().length-4);
+                        firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+                        firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).remove();
+                        firebase.database().ref().child('users').child(bettyMan).child('requests').child(child.key).remove();
+                        }
+                        else{
+							console.log("this is not the mid");
+							var midMan = child.child('middle').val().substring(0,child.child('middle').val().length-4);
+							var betterMan =child.child('better').val().substring(0,child.child('better').val().length-4);
+                        firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+                        firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).remove();
+                        firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
+
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    });
+					
+					$b2.on("click", function(){
+						str = str.charAt(str.length - 1);
+                        $("#reqBet" + str).remove();
+                        
+                        
+
+                        var betterMan =child.child('better').val().substring(0,child.child('better').val().length-4);
+
+                        if(child.child('middle').val()==null){
+                        	console.log("this is the mid");
+
+                        	var bettyMan = child.child('betty').val().substring(0,child.child('betty').val().length-4);
+                        	//If both true for pending then go through this
+                        	console.log(betterMan);
+                        	var getTruth = firebase.database().ref().child('users').child(betterMan);
+							getTruth.once("value")
+  							.then(function(innerSnap) {
+    							//var key = snapshot.key; // "ada"
+    							
+    							if(innerSnap.child('bets').child(child.key).child('betty').child('accept').val()=='pending'){
+    								console.log('pending	of mid');
+    								firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).child('middle').child('accept').set('true');
+    								firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+    							}
+    							//else not pending and we do all the work
+    							else
+    							{
+    								console.log('not pending	of mid');
+    								//Have to switch the grey ones to not pending
+    								// mid setup own data!
+    								//firebase.database().ref().child('users').child(bettyMan);
+    								//move bettys data to and actual one
+    								firebase.database().ref().child('users').child(user).child('middleWork').child(child.key).child('better').child('name').set(child.child('better').val());
+    								firebase.database().ref().child('users').child(user).child('middleWork').child(child.key).child('better').child('pending').set('true');
+
+    								firebase.database().ref().child('users').child(user).child('middleWork').child(child.key).child('betty').child('name').set(child.child('betty').val());
+    								firebase.database().ref().child('users').child(user).child('middleWork').child(child.key).child('betty').child('pending').set('true');
+
+    								//price
+    								firebase.database().ref().child('users').child(user).child('middleWork').child(child.key).child('price').child('percent').set(child.child('price').child('percent').val());
+    								firebase.database().ref().child('users').child(user).child('middleWork').child(child.key).child('price').child('each').set(child.child('price').child('each').val());
+    								//remove from the request block after!	
+    								//firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
+
+    								firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).child('middle').child('accept').set('true');
+    								
+    								//move bettys data to and actual one
+    								firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).child('betty').child('name').set(betterMan);
+    								firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).child('betty').child('pending').set('true');
+
+    								firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).child('middle').child('name').set(user);
+    								firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).child('middle').child('pending').set('true');
+
+    								//price
+    								firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).child('price').child('percent').set(child.child('price').child('percent').val());
+    								firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).child('price').child('each').set(child.child('price').child('each').val());
+
+
+    								firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+
+
+
+    								//We are mid so move onto the mid stack!
+    							}
+                        	//remove self
+                        	//firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+                        	});
+                        }
+                        else{
+							console.log("this is not the mid");
+							var midMan = child.child('middle').val().substring(0,child.child('middle').val().length-4);
+							//remove self
+							console.log(betterMan + "	better man");
+							var getTruth = firebase.database().ref().child('users').child(betterMan);
+							getTruth.once("value")
+  							.then(function(innerSnap) {
+    							//var key = snapshot.key; // "ada"
+    							
+    							if(innerSnap.child('bets').child(child.key).child('middle').child('accept').val()=='pending'){
+    								console.log('pending	in not mid');
+    								console.log(innerSnap.child('bets').child(child.key).child(user).child('accept').val());
+    								console.log(innerSnap.key);
+    								firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).child('betty').child('accept').set('true');
+    								firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+    								//firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+    							}
+    							//else not pending and we do all the work
+    							else
+    							{
+    								console.log("not pending in not mid");
+    								//Have to switch the grey ones to not pending
+    								// mid setup own data!
+    								firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).child('middle').child('accept').set('true');
+    								firebase.database().ref().child('users').child(midMan);
+    								//move bettys data to and actual one
+    								firebase.database().ref().child('users').child(user).child('bets').child(child.key).child('betty').child('name').set(child.child('better').val());
+    								firebase.database().ref().child('users').child(user).child('bets').child(child.key).child('betty').child('pending').set('true');
+
+    								firebase.database().ref().child('users').child(user).child('bets').child(child.key).child('middle').child('name').set(child.child('middle').val());
+    								firebase.database().ref().child('users').child(user).child('bets').child(child.key).child('middle').child('pending').set('true');
+
+    								//price
+    								firebase.database().ref().child('users').child(user).child('bets').child(child.key).child('price').child('percent').set(child.child('price').child('percent').val());
+    								firebase.database().ref().child('users').child(user).child('bets').child(child.key).child('price').child('each').set(child.child('price').child('each').val());
+    								//remove from the request block after!	
+
+    								firebase.database().ref().child('users').child(midMan).child('middleWork').child(child.key).child('better').child('name').set(child.child('better').val());
+    								firebase.database().ref().child('users').child(midMan).child('middleWork').child(child.key).child('better').child('pending').set('true');
+
+    								firebase.database().ref().child('users').child(midMan).child('middleWork').child(child.key).child('betty').child('name').set(user);
+    								firebase.database().ref().child('users').child(midMan).child('middleWork').child(child.key).child('betty').child('pending').set('true');
+
+    								//price
+    								firebase.database().ref().child('users').child(midMan).child('middleWork').child(child.key).child('price').child('percent').set(child.child('price').child('percent').val());
+    								firebase.database().ref().child('users').child(midMan).child('middleWork').child(child.key).child('price').child('each').set(child.child('price').child('each').val());
+
+
+
+    								//firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
+    								//firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+    								firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+    							}
+  							});
+
+							//console.log(+"		HEY");
+							
+							//firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+                        }
+
+
+                        /*
+                        firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
+                        if(midMan==null){
+                        	firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).child('betty').child('accept').set('true');
+                        	if(firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).child('middle').child('accept').val()=='true'){
+                        		console.log("true");
+                        	}
+                        }
+                        else{
+							firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).child('midMan').child('accept').set('true');
+							if(firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).child('middle').child('accept').val()=='true'){
+                        		console.log("true");
+
+                        	}
+						}*/
+
+						
+					});
+
 				 var $midMan = $("<div>", {"class": "rMidMan", "id": "rMidMan" + i});
 				 var $charity = $("<div>", {"class": "rCharity", "id": "rCharity" + i});
 
@@ -56,6 +242,7 @@ function creator(){
 				 $userName.append( $("<h1>", {"class": "rUser", "id": "rUser" + i}) );
 				 $amount.append( $("<h1>", {"class": "rAmountValue", "id": "rAmountVale" + i}) );
 				 $opponent.append( $("<h1>", {"class": "rOp", "id": "rOp" + i}) );
+
 
 				 $midMan.append( $("<h2>", {"class": "rMidM", "id": "rMidM" + i}) );
 				 $charity.append( $("<h2>", {"class": "rChar", "id": "rChar" + i}) );
@@ -169,7 +356,7 @@ function creator(){
 
   			});
 		//Leftside
-		ref.child('middle').once('value',snap=>{
+		ref.child('middleWork').once('value',snap=>{
   			console.log(snap.val());
 
   			snap.forEach(function(child){
