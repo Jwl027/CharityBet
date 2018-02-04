@@ -1,0 +1,156 @@
+body,html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: lightblue;
+}
+h1{
+    margin: 0 auto;
+}
+div{
+    text-align: center;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#newbet{
+    height: 20%;
+}
+#newbetButton{
+  border-radius: 8px;
+  font: normal 15px Tahoma;
+  line-height: 16px;
+  width: 100px;
+  height: 40px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#newbetButton:hover{
+  background-color: #4CAF50; /* Green */
+    color: white;
+}
+#personalButton{
+  border-radius: 8px;
+  font: normal 15px Tahoma;
+  line-height: 16px;
+  width: 100px;
+  height: 50px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#personalButton:hover{
+  background-color: #4CAF50; /* Green */
+    color: white;
+}
+#logOutFromDash{
+  border-radius: 8px;
+  font: normal 15px Tahoma;
+  line-height: 16px;
+  width: 100px;
+  height: 50px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#logOutFromDash:hover{
+  background-color: #4CAF50; /* Green */
+    color: white;
+}
+#left{
+    width: 32%;
+    height: 80%;
+    float: left;
+}
+#middle{
+    width:36%;
+    height: 80%;
+    float: left;
+}
+#right{
+    width: 32%;
+    height: 80%;
+    float: right;
+}
+.card, .rContainerDiv, .lContainer{
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 #000000;
+    transition: 0.1s;
+    width: 90%;
+    margin: 0 auto;
+    background: #F9B759;
+    height: 20%;
+}
+/* On mouse-over, add a deeper shadow */
+.card:hover, .rContainerDiv:hover, .lContainer:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.inner, .rCardDiv, .lcard{
+    height: 100%;
+}
+.oponentNameText{
+    font-weight: bold;
+    font-style: oblique;
+}
+.amountText{
+    font-weight: lighter;
+}
+.descriptionText, .rDescriptionText{
+    font-size: 200%;
+}
+/*Buttons for RightSide*/
+.reqBetDecApprove, .reqBetDecDecline{
+    width: 100px;
+    height: 50px;
+}
+.details, .rDetailDiv{
+    height:30%;
+    font-size: 20px;
+}
+.userNameDiv, .amountDiv,.rUserName, .rAmount{
+    width:33%;
+    float:left;
+}
+.oponentNameDiv{
+    width:33%;
+    float:right;
+}
+.userNameDiv, .oponentNameDiv, .rUserName, .rOpponent{
+    font-weight: bold;
+}
+.amountDiv, .rAmount{
+    font-weight: bold;
+}
+.rUserName, .rAmount {
+    width:33%;
+    float:left;
+}
+.rOpponent{
+    width:33%;
+    float:right;
+}
+
+.rMidMan{
+    width: 50%;
+    float:left;
+}
+
+.rCharity{
+    width: 50%;
+    float: right;
+}
+
+.rDetailDiv{
+    margin-top: 5%;
+}
+.bottomL,.bottomR {
+    float:left;
+    width: 50%;
+}
+.lDivDescription{
+    margin-top: 35px;
+    margin-bottom: 50px;
+}

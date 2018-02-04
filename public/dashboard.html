@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./dashboard_style.css">
+    <script src="./dashboard.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <title>DashBoard</title>
+  </head>
+  <body onload="creator()">
+    <div class="container">
+        <div class="container" id="newbet">
+                <h1 id="Title"> Start New Bet!</h1>
+                <button id="newbetButton">New Bet</button>
+                <button id="logOutFromDash">Log Out</button>
+              </br>
+                <button id="personalButton">Personal Resolutions</button>
+              </br>
+        </div>
+
+        <div class="container" id="left">
+            <h1> Middle Man Commitments </h1>
+        </div>
+
+        <div class="container" id="middle">
+            <h1> Active Bets </h1>
+        </div>
+        <!-- </div> -->
+
+        <div class="container" id="right">
+            <h1> Requested Bets </h1>
+
+        </div>
+    </div>
+
+  </body>
+</html>

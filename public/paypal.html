@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+
+    <div id="paypal-button-container"></div>
+
+    <script>
+        var bAmount = 30;
+        var bPercent = 0.5;
+        var bTotal = bAmount * bPercent;
+
+        paypal.Button.render({
+
+            env: 'sandbox', // sandbox | production
+
+            style: {
+                label: 'paypal',
+                color: 'blue',
+                tagline: false
+            },
+
+            // PayPal Client IDs - replace with your own
+            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+            client: {
+                sandbox:    'ATgwDhtbYIFh3_OGQS1tsNJF_4bwbWDFNNx5HXZLyPDlwVvv1qtgIAuH2OV8S1ECvN0Tk0m4NeGjiK2F',
+                production: '<insert production client id>'
+            },
+
+            // Show the buyer a 'Pay Now' button in the checkout flow
+            commit: true,
+
+            // payment() is called when the button is clicked
+            payment: function(data, actions) {
+
+                // Make a call to the REST api to create the payment
+                return actions.payment.create({
+                    payment: {
+                        transactions: [
+                            {
+                                amount: { total: bTotal, currency: 'USD' }
+                            }
+                        ]
+                    },
+                    description: "Charity Bet",
+                    item_list:
+                    {
+                        items: [
+                        {
+                            name: "Charity Bet Placement",
+                            description: " ",
+                            price: bTotal,
+                            currency: 'USD',
+                            tax: 0,
+                            quantity: 1
+                        }]
+                    },
+                    experience: {
+                        input_fields: {
+                            no_shipping: 1
+                        }
+                    }
+
+                });
+            },
+
+            // onAuthorize() is called when the buyer approves the payment
+            onAuthorize: function(data, actions) {
+
+                // Make a call to the REST api to execute the payment
+                return actions.payment.execute().then(function() {
+                    window.alert('Payment Complete!');
+                });
+            }
+
+        }, '#paypal-button-container');
+
+    </script>
+
+    

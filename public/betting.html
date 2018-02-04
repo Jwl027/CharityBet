@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="./main.css">
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-    <!-- <script src="./apBet.js"></script> -->
+
   </head>
   <body>
       <div class = "container">
             <div class = "top3">
                 <div class = "dashlog">
-                    <button id="b3" class="button"> Dashboard</button>
-                    <button id="b3" class="button"> Login</button>
+                    <button id="b4" class="button"> Dashboard</button>
+                    <button id="b3" class="button"> Logout</button>
                 </div>
                 <div class = "title">
                     <center>
@@ -41,7 +41,7 @@
                         <div id="topHa">
                             <button id="b2" class="button">Opponent's Mula </button>
                         </div>
-                        <div id ="bottomHa"
+                        <div id ="bottomHa">
                             <button id="b2" class="button"> Charity Donations </button>
                         </div>
                     </div>
@@ -55,27 +55,25 @@
                 </div>
             </div>
       </div>
-
-
-
-
       <script>
-          var slider = document.getElementById("myRange");
-          var output1 = document.getElementById("demo1");
-          var output2 = document.getElementById("demo2");
-
-         output1.innerHTML = slider.value;
-         output2.innerHTML = 100 - slider.value;
-
-          slider.oninput = function() {
-            if(slider.value > 50) {
-                output1.innerHTML = 100 - slider.value;
-                output2.innerHTML = slider.value;
-            } else {
+        var slider = document.getElementById("myRange");
+        var output1 = document.getElementById("demo1");
+        var output2 = document.getElementById("demo2");
+            output1.innerHTML = slider.value;
+            output2.innerHTML = 100 - slider.value;
+            slider.oninput = function() {
+                if(slider.value > 50) {
+                    output1.innerHTML = 100 - slider.value;
+                    output2.innerHTML = slider.value;
+                } else {
                 output2.innerHTML = slider.value;
                 output1.innerHTML = 100 - slider.value;
             }
         }
-      </script>
-  </body>
+    </script>
+
+
+
+      <script src="bet.js"></script>
+</body>
 </html>

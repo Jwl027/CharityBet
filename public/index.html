@@ -1,31 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Betting</title>
-    <link rel="stylesheet" href="./main.css">
-  </head>
-  <body>
-      <center>
-          <h1>Bets</h1>
-      </center>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./styles.css">
+		<title>Home</title>
+	</head>
+	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+	<script>
+  	// Initialize Firebase
+  	var config = {
+    	apiKey: "AIzaSyBPUnQS_FdP70ras4xGGB20GCezMuy2_kY",
+    	authDomain: "charitybet-c4eb6.firebaseapp.com",
+    	databaseURL: "https://charitybet-c4eb6.firebaseio.com",
+    	projectId: "charitybet-c4eb6",
+    	storageBucket: "",
+    	messagingSenderId: "545734531716"
+  	};
+  	//firebase.initializeApp(config);
+</script>
+<body>
+	<a href="betting.html"><button>Go To Login</button></a>
+	<a href="dashboard.html"><button>Go To dash</button></a>
+	<div class="box">
+		<div class="box" id= "top">
+			<h1>Charity Bets</h1>
+			<br/>
+		</div>
 
-      <!--box 1 -->
-      <div id="box1" class="boxed">
-          <center>
-              <button type="button" id= "b1"> Middle Man!</button>
-          </center>
-      </div>
+		<div class="box" id= "login">
+			<h2>Login</h2>
+		</div>
 
-      <!--box 2 -->
-      <div id="box2" class="boxed">
-          <center>
-              <button type="button" id= "b2"> Opponent!</button>
-          </center>
-      </div>
-<!-- box3 was here-->
-      <div class="scrollbar" id="scroll">
-            <div class="force-overflow"></div>
-        </div>
-  </body>
+		<input class = "email" id = "txtEmail" type = "email" placeholder="Email">
+		<input class = "pass" id = "txtPass" type = "password" placeholder="Password">
+		<br/>
+		<button class = "buttonLogin" id= "btnLogin">Login</button>
+		<br/>
+
+		<div class="box" id= "signup">
+			<h2>Signup</h2>
+		</div>
+
+		<button class = "buttonSu" id = "btnSignUp" onclick= "signUpPmt()">SignUp</button>
+		<div class="popupSu" onclick="myFunction()">
+  		<span class="popupSuText" id="myPopup">
+				<script>
+					// var str = $buttonSu.attr('id');
+					// var i = str.charAt(str.length-1);
+					// document.getElementById('buttonL' + i).onclick = function();
+					function signUpPmt() {
+						var person = prompt("Please enter your name", "");
+						var user = prompt("Please enter a desired username", "");
+						var password = prompt("Please enter a password", "");
+						var password2 = prompt("Please reenter your password", "");
+			  	}
+				</script>
+
+			</span>
+		</div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+
+		<button class = "buttonLogout"id= "btnLogOut">Logout</button>
+
+	</div>
+
+	<body background class="bg">
+	</body>
+
+	<script src="app.js"></script>
+	</body>
+	</body>
 </html>
+<!-- >>>>>>> 5d399d5bb8383d2b92a7b17173fa66d6c52562cb -->
