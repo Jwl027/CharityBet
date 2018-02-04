@@ -361,29 +361,46 @@ function creator(){
 
   			snap.forEach(function(child){
 
-  				$container = $("<div>", {"class": "midManContain", "id" : "midManContain" + i});
-		$card = $("<div>", {"class": "midManCard", "id": "midManCard" + i});
-		$user1 = $("<div>", {"class": "minManUser1", "id": "minManUser1" + i});
-		$approve = $("<div>", {"class": "minManApprove", "id": "minManApprove" + i});
-		$user2 = $("<div>", {"class": "minManUser2", "id": "minManUser2" + i});
+  				$container = $("<div>", {"class": "lContainer", "id": "lContainer" + i});
 
-		//TODO Remove USER1Name  & 2 with actual username
-		$user1.append( $("<h1>", {"class": "minManUser1Text", "id": "minManUser1Text" + i}).append("USER1Name") );
-		$user1.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU1" + i}) );
+				$card = $("<div>", {"class": "lCard", "id": "lCard" + i});
+
+				$divDescription = $("<div>", {"class": "lDivDescription", "id": "lDivDescription" + i});
+				$divBottomDiv = $("<div>", {"class": "lBottomDiv", "id": "lBotttomDiv" + i});
+
+				$description = $("<h1>", {"class": "lDescriptionText", "id" : "lDescriptionText" + i});
+
+				$bottomL = $("<div>", {"class": "bottomL" , "id": "bottomL" + i});
+				$bottomR = $("<div>", {"class": "bottomR" , "id": "bottomR" + i});
+
+				$buttonL = $("<button>", {"class": "buttonL" , "id":"buttonL" + i});
+				$buttonR = $("<button>", {"class": "buttonR" , "id":"buttonR" + i});
+
+				$buttonL.on("click", function() {
+					
+				});
+
+				$buttonR.on("click", function() {
+
+				});
+
+				$bottomL.append($buttonL);
+				$bottomR.append($buttonR);
+
+				$description.append("BET DESCRIPTION");
+
+				$divBottomDiv.append($bottomL);
+				$divBottomDiv.append($bottomR);
+
+				$divDescription.append($description);
+
+				$card.append($divDescription);
+				$card.append($divBottomDiv);
+
+				$container.append($card);
 
 
-		$user2.append( $("<h1>", {"class": "minManUser2Text", "id": "minManUser2Text" + i}).append("USER2Name") );
-		$user2.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU2" + i}) );
-
-		$approve.append( $("<button>", {"class": "ApproveButton", "id": "ApproveButton" + i}) );
-
-		$card.append($user1);
-		$card.append($approve);
-		$card.append($user2);
-
-		$container.append($card);
-
-		$("#left").append($container);
+				$("#left").append($card);
   			});
 
 
