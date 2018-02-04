@@ -387,7 +387,7 @@ function creator(){
 				$bottomL.append($buttonL);
 				$bottomR.append($buttonR);
 
-				$description.append("BET DESCRIPTION");
+				$description.append(child.key);
 
 				$divBottomDiv.append($bottomL);
 				$divBottomDiv.append($bottomR);
