@@ -190,11 +190,11 @@ function creator(){
 				$buttonR = $("<button>", {"class": "buttonR" , "id":"buttonR" + i});
 
 				$buttonL.on("click", function() {
-					
+					alert("Confirm Left Click");
 				});
 
 				$buttonR.on("click", function() {
-
+					alert("Confirm Right Click");
 				});
 
 				$bottomL.append($buttonL);
