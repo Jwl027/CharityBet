@@ -19,7 +19,7 @@
   	//Login Stuff!
   	var txtEmail=document.getElementById('txtEmail');
   	var txtPass=document.getElementById('txtPass');
-  	var buttonSignUp=document.getElementById('btnSignUp');
+  	var buttonSignUp=document.getElementById('newReg');
   	var buttonLogin=document.getElementById('btnLogin');
   	var buttonLogOut=document.getElementById('btnLogOut');
 
@@ -32,14 +32,11 @@
 
   	buttonSignUp.addEventListener('click',e=>{
   		var auth = firebase.auth();
-      var person = prompt("Please enter your name", "");
-            var userN = prompt("Please enter an email", "");
-
-            var password = prompt("Please enter a password", "");
-            var password2 = prompt("Please reenter your password", "");
-
-
-  		var promise = auth.createUserWithEmailAndPassword(userN,password).then(function(user){
+      
+      var userN = document.getElementById('regEmail');
+      var password = document.getElementById('regPass');
+      console.log(userN.value);
+  		var promise = auth.createUserWithEmailAndPassword(userN.value,password.value).then(function(user){
 
 
             console.log('uid',user.uid);
