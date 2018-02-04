@@ -95,15 +95,16 @@
 			ref.child("requests").child(titleBet.value).child('price').child('each').set(moneyBet.value);
 			ref.child("requests").child(titleBet.value).child('price').child('percent').set(percentageBet.value);
 			//set the better and betty for middleman to see
-			ref.child("requests").child(titleBet.value).child('better').set(user);
+			ref.child("requests").child(titleBet.value).child('better').set(user+".com");
 			ref.child("requests").child(titleBet.value).child('betty').set(betty.value);
 			ref.child("requests").child(titleBet.value).child('pending').set('pending');
 			ref.child("requests").child(titleBet.value).child('Charity').set(charityOfChoice.value);
 
-		ref = firebase.database().ref().child('users').child(betty.value.substring(0,middleman.value.length-4));
+
+		ref = firebase.database().ref().child('users').child(betty.value.substring(0,betty.value.length-4));
 			ref.child("requests").child(titleBet.value).child('price').child('each').set(moneyBet.value);
 			ref.child("requests").child(titleBet.value).child('price').child('percent').set(percentageBet.value);
-			ref.child("requests").child(titleBet.value).child('better').set(user);
+			ref.child("requests").child(titleBet.value).child('better').set(user+".com");
 			ref.child("requests").child(titleBet.value).child('middle').set(middleman.value);
 			ref.child("requests").child(titleBet.value).child('pending').set('pending');
 			ref.child("requests").child(titleBet.value).child('Charity').set(charityOfChoice.value);
