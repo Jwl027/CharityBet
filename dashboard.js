@@ -393,16 +393,19 @@ function creator(){
 				//Replace last append with datbase info
 				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User Right");
 
-				var i = $buttonL.attr('id');
-				console.log("WHAT THE " + i);
-				i = i.charAt(i.length - 1);
+				var j = $buttonL.attr('id');
+				console.log("WHAT THE " + j);
+				j = j.charAt(j.length - 1);
 
 				$buttonL.on("click", function() {
 					var del = window.confirm("Are you sure  is the winner?");
 					console.log(del);
 					if(del == true) {
-						console.log("here" + i);
-						$($container).remove()
+						console.log("here" + j);
+						var str = "#lContainer" + j;
+						console.log(str);
+
+						$(str).remove()
 					}
 				});
 
@@ -410,8 +413,11 @@ function creator(){
 					var del = window.confirm("Are you sure  is the winner?");
 					console.log(del);
 					if(del == true) {
-						console.log("here" + i);
-						$($container).remove()
+						console.log("here" + j);
+						var str = "#lContainer" + j;
+						console.log(str);
+
+						$(str).remove()
 					}
 				});
 
