@@ -55,8 +55,8 @@ function creator(){
                         str = str.charAt(str.length - 1);
                         $("#reqBet" + str).remove();
                         console.log("removing from databasex");
-                        var midMan = child.child('middle').val();
-                        var betterMan =hild.child('better').val();
+                        var midMan = child.child('middle').val().substring(0,child.child('middle').val().length-4);
+                        var betterMan =child.child('better').val();
                         firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
 
                         firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).remove();
