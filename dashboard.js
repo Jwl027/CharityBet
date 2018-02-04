@@ -360,7 +360,7 @@ function creator(){
   			console.log(snap.val());
 
   			snap.forEach(function(child){
-
+                console.log("IN THE LEFT");
   				$container = $("<div>", {"class": "lContainer", "id": "lContainer" + i});
 
 				$card = $("<div>", {"class": "lCard", "id": "lCard" + i});
