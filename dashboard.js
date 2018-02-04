@@ -358,9 +358,14 @@ function creator(){
 		//Leftside
 		ref.child('middleWork').once('value',snap=>{
   			console.log(snap.val());
+			var i = 0;
 
   			snap.forEach(function(child){
+<<<<<<< HEAD
                 console.log(child.key);
+=======
+				// var i = 0;
+>>>>>>> 1310f127eb645397a22de08321324f57eebf16ac
   				$container = $("<div>", {"class": "lContainer", "id": "lContainer" + i});
 
 				$card = $("<div>", {"class": "lCard", "id": "lCard" + i});
@@ -376,19 +381,40 @@ function creator(){
 				$buttonL = $("<button>", {"class": "buttonL" , "id":"buttonL" + i});
 				$buttonR = $("<button>", {"class": "buttonR" , "id":"buttonR" + i});
 
+				$buttonL.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User LEFT");
+				//Replace last append with datbase info
+				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append("User Right");
+
+				var i = $buttonL.attr('id');
+				console.log("WHAT THE " + i);
+				i = i.charAt(i.length - 1);
+
 				$buttonL.on("click", function() {
-					window.confirm("Are you sure this user is the winner?");
+					var del = window.confirm("Are you sure  is the winner?");
+					console.log(del);
+					if(del == true) {
+						console.log("here" + i);
+						$($container).remove()
+					}
 				});
 
 				$buttonR.on("click", function() {
-					window.confirm("Are you sure this user is the winner?");
+					var del = window.confirm("Are you sure  is the winner?");
+					console.log(del);
+					if(del == true) {
+						console.log("here" + i);
+						$($container).remove()
+					}
 				});
 
+<<<<<<< HEAD
 				
 				$buttonL.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append(child.child('better').child('name').val());
 				//Replace last append with datbase info
 				$buttonR.append("<h3>", {"class":"rButtonText", "id": "rButtonText" + i}).append(child.child('betty').child('name').val());
 
+=======
+>>>>>>> 1310f127eb645397a22de08321324f57eebf16ac
 				$bottomL.append($buttonL);
 				$bottomR.append($buttonR);
 
@@ -406,9 +432,18 @@ function creator(){
 
 
 				$("#left").append($container);
+<<<<<<< HEAD
 
 
 				
+=======
+				i++;
+				// var str = $approve.attr('id');
+				// var i = str.charAt(str.length-1);
+				// document.getElementById('buttonL' + i).onclick = function() {
+				// 	window.confirm("Are you sure this user is the winner?");
+				// }
+>>>>>>> 1310f127eb645397a22de08321324f57eebf16ac
 
   			});
 
