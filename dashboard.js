@@ -344,7 +344,7 @@ function creator(){
 			    "id": "amountText" + i} );
 			        //TODO:CHANGE OPPONENT NAME and MIDDLE MAN NAME DYNAMIC
 			        $oponentName.append(child.child('betty').child('name').val());
-			        $userName.append('USERNAME');
+			        $userName.append(user);
 			        $middleManName.append(child.child('middle').child('name').val() );
 			        $description.append(child.key);
 			        $amount.append("$ " + child.child('price').child('each').val());
@@ -620,5 +620,10 @@ function creator(){
 
   		document.location.href='./betting.html';
   	});
+
+    document.getElementById('personalButton').addEventListener('click',e=>{
+
+        document.location.href='./personal.html';
+    });
 
 }

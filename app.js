@@ -32,8 +32,16 @@
 
   	buttonSignUp.addEventListener('click',e=>{
   		var auth = firebase.auth();
+      var person = prompt("Please enter your name", "");
+            var userN = prompt("Please enter an email", "");
 
-  		var promise = auth.createUserWithEmailAndPassword(txtEmail.value,txtPass.value).then(function(user){
+            var password = prompt("Please enter a password", "");
+            var password2 = prompt("Please reenter your password", "");
+
+
+  		var promise = auth.createUserWithEmailAndPassword(userN,password).then(function(user){
+
+
             console.log('uid',user.uid);
             var ref = firebase.database().ref().child('users');
             var adaptEmail = user.email.substring(0,user.email.length-4);
