@@ -27,7 +27,7 @@ function creator(){
   				var i = 0;
 
   				snap.forEach(function(child){
-
+                    console.log(child.key);
 		          
 
 

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 (function(){
 
 	var config = {
@@ -22,29 +22,28 @@
 
   				var ref = firebase.database().ref().child('users').child(user).child('resolutions');
   			ref.child(document.getElementById('descript').value).child('price').set(document.getElementById('moneyBet').value);
+  			ref.child(document.getElementById('descript').value).child('charity').set(document.getElementById('charity').value);
+  			
+  			location.reload();
+  			
+
+
 
 
   			});
 
+  			ref =firebase.database().ref().child('users').child(user);
+            // var i = 0;
+            ref.child('resolutions').once('value',snap=>{
+            	console.log('xd');
 
 
+            	snap.forEach(function(child){
 
-
-
-
-  		}
-  		else{
-  			
-  		}
-  	});
-
-}());
-=======
-function createCard() {
-    var text = document.getElementById("descript").value;
-    var text_2 = document.getElementById("moneyBet").value;
-    var text_3 = document.getElementById("charity").value;
-    $container = $("<div>", {"class": "container", "id": "container" + text})
+            	var text = document.getElementById("descript").value;
+    	var text_2 = document.getElementById("moneyBet").value;
+    	var text_3 = document.getElementById("charity").value;
+    	$container = $("<div>", {"class": "container", "id": "container" + text})
 
     $card = $("<div>", {"class": "card", "id": "card" + text});
 
@@ -66,19 +65,21 @@ function createCard() {
     $approve.on("click", function(){
         // str = str.charAt(str.length - 1);
         $("#container" + text).remove();
+        firebase.database().ref().child('users').child(user).child('resolutions').child(child.key).remove();
     });
     $unapprove.on("click", function(){
         // str = str.charAt(str.length - 1);
         $("#container" + text).remove();
+        firebase.database().ref().child('users').child(user).child('resolutions').child(child.key).remove();
     });
 
 
     $approve.append("Completed");
     $unapprove.append("Quit");
 
-    $descriptText.append(text);
-    $amountText.append(text_2);
-    $chaityText.append(text_3);
+    $descriptText.append(child.key);
+    $amountText.append("$"+child.child('price').val());
+    $chaityText.append(child.child('charity').val());
 
 
     $descriptDiv.append( $descriptText );
@@ -99,12 +100,34 @@ function createCard() {
     $("#box").append($container);
 
 
+});
 
-    console.log(text);
+
+    
+
+
+
+            });
+
+
+
+
+
+
+  		}
+  		else{
+  			
+  		}
+  	});
+
+}());
+
+function createCard() {
+ 
 }
 
 function countDown() {
 
     return 0;
 }
->>>>>>> 9c367a50bb7a0085360398149442e181787321b7
+
