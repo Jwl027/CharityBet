@@ -2,12 +2,42 @@ body,html{
     background-color: #862d2d;
     background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    width: 100%;
+    height:100%;
+}
+.container{
+    width:100%;
+    height:100%;
+}
+
+.top3{
+    height: 20%;
+    width: 100%;
+}
+.bottomhalf {
+    height: 80%
+    width: 100%;
+}
+.left {
+    height: 80%;
+    width: 20%;
+    text-align: center;
+    float:left;
+}
+
+.right{
+    height:80%;
+    width: 80%;
+    text-align: center;
+    float:left;
+
 }
 
 h1{
     color: black;
     font: Helvetica;
 }
+
 
 
 #b1 {
@@ -26,15 +56,31 @@ h1{
 }
 #b2 {
     background-color: #0a6c03; /* Billiard Green */
+    background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-    border: black;
+    border: white;
     border-width: 70px;
+    border-radius: 8px;
     color: white;
     height: 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
+    float:left;
+}
+#b3 {
+    background-color: #2e316b;
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+    color: white;
+    border-width: 10%;
+}
+
+
+#line {
+    text-align: center;
+    position:sticky;
+
 }
 
 #sl1{
@@ -50,7 +96,7 @@ h1{
     float: left;
 }
 #bettyName {
-    background-color: #d3d3d3;
+
 }
 #middleManName {
 

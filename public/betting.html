@@ -9,79 +9,72 @@
     <!-- <script src="./apBet.js"></script> -->
   </head>
   <body>
-      <div>
-            <button id="b3"> Dashboard</button>
-            <button id="b3"> Login</button>
-      </div>
-      <div>
-      <center>
-          <h1> <i class="em em-8ball" id="emoji"></i> B E T S <i class="em em-moneybag" id="emoji"></i> </h1>
-      </center>
-    </div>
-      <!--added by johnson-->
-<div>
-    <center>
-      <input id="bettyName" type="text" class="upper" placeholder="Opponent"name="usrname">
-      <input id="middleManName" type="text" class="upper" placeholder="Middleman"name="usrname">
-      <input id="betTitle" type="text"class="upper" placeholder="What are you betting?" name="usrname">
-      <input id="moneyBet" type="text" class="upper" placeholder="$"name="number">
-      <input id="moneyPercent" type="number" class="upper" placeholder="%"name="number">
-      <input id="charityChoice" type="text"class="upper" placeholder="Charity">
-  </center>
- </div>
-
-<div style="margin-top: 2%">
-    <!-- SEND REQUEST -->
-    <button type="button" id="b1" class="button">  Send Request</button>
-</div>
-
-    <div>
-        <div class="btn-group">
-            <center>
-          <button id="b2"> Opponent's Mula </button>
-          <button id="b2"> Charity Donations </button>
-      </center>
-        </div>
-
-            <div>
+      <div class = "container">
+          <div class = "top3">
+            <div class = "dashlog">
+                <button id="b3" class="button"> Dashboard</button>
+                <button id="b3" class="button"> Login</button>
+            </div>
+            <div class = "title">
                 <center>
-                    <!-- OPPONENT -->
-                    <button type="button" class= "slideButton" id = "sl1">Opponent: <span id="demo1"></span> % </button>
-                    <!-- SLIDER -->
-                    <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
-                    <!-- CHARITY -->
-                    <button type= "button" class = "slideButton" id = "sl2">Charity: <span id="demo2"></span> % </button>
+                    <h1> <i class="em em-8ball" id="emoji"></i> B E T S <i class="em em-moneybag" id="emoji"></i> </h1>
                 </center>
             </div>
-     </div>
+            <div class = "tabs">
+                <center>
+                  <input id="bettyName" type="text" class="upper" placeholder="Opponent"name="usrname">
+                  <input id="middleManName" type="text" class="upper" placeholder="Middleman"name="usrname">
+                  <input id="betTitle" type="text"class="upper" placeholder="What are you betting?" name="usrname">
+                  <input id="moneyBet" type="text" class="upper" placeholder="$"name="number">
+                  <input id="moneyPercent" type="number" class="upper" placeholder="%"name="number">
+                  <input id="charityChoice" type="text"class="upper" placeholder="Charity">
+              </center>
+            </div>
+        </div>
+        <div class = "bottomhalf">
+            <div class = "left">
+                <button type="button" id="b1" class="button">  Send Request</button>
+            </div>
+            <div class = "right">
+                <div class="btn-group">
+                    <center>
+                      <button id="b2" class="button">Opponent's Mula </button>
+                      <button id="b2" class="button"> Charity Donations </button>
+                    </center>
+                </div>
+                <div id= "line">
+                    <center>
+                        <div>
+                        <button type="button" class= "slideButton" id = "sl1">Opponent: <span id="demo1"></span> % </button>
+                        </div>
+                        <div>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                        </div>
+                        <div>
+                        <button type= "button" class = "slideButton" id = "sl2">Charity: <span id="demo2"></span> % </button>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+      </div>
+      <script>
+          var slider = document.getElementById("myRange");
+          var output1 = document.getElementById("demo1");
+          var output2 = document.getElementById("demo2");
 
-     <script>
-         var slider = document.getElementById("myRange");
-         var output1 = document.getElementById("demo1");
-         var output2 = document.getElementById("demo2");
+         output1.innerHTML = slider.value;
+         output2.innerHTML = 100 - slider.value;
 
-        output1.innerHTML = slider.value;
-        output2.innerHTML = 100 - slider.value;
-
-         slider.oninput = function() {
-           if(slider.value > 50) {
-               output1.innerHTML = 100 - slider.value;
-               output2.innerHTML = slider.value;
-           } else {
-               output2.innerHTML = slider.value;
-               output1.innerHTML = 100 - slider.value;
-           }
-       }
-
-           // slider.oninput = function() {
-           //   if(slider.value >= 50) {
-           //       output2.innerHTML = 100 - slider.value;
-           //       output1.innerHTML = slider.value;
-           //   } else {
-           //       output1.innerHTML = slider.value;
-           //       output2.innerHTML = 100 - slider.value;
-           //   }
-           //  }
-     </script>
+          slider.oninput = function() {
+            if(slider.value > 50) {
+                output1.innerHTML = 100 - slider.value;
+                output2.innerHTML = slider.value;
+            } else {
+                output2.innerHTML = slider.value;
+                output1.innerHTML = 100 - slider.value;
+            }
+        }
+      </script>
   </body>
 </html>

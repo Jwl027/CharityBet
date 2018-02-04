@@ -40,6 +40,7 @@ function creator(){
 				 var $divDescription = $("<div>", {"class": "rDescriptionDiv", "id": "reqBetDetails" + i});
 				 var $divDetails = $("<div>", {"class": "rDetailDiv", "id": "reqBetDecision" + i});
 				 var $divMidMan = $("<div>", {"class": "rMinManDiv", "id": "reqBetCharity" + i});
+				 var $divButton = $("<div>", {"class": "rButtonDiv", "id": "rButtonDiv" + i});
 
 				 //Components
 				 var $description = $("<h1>", {"class": "rDescriptionText", "id" : "reqBetDetailsText" + i})
@@ -55,7 +56,8 @@ function creator(){
                     $b2.append('Approve');
                     //Deletes Cards
                     var str = $b1.attr('id');
-                    $b1.on("click", function(){
+
+					$b1.on("click", function(){
                         str = str.charAt(str.length - 1);
                         $("#reqBet" + str).remove();
 
@@ -238,6 +240,11 @@ function creator(){
 				 var $midMan = $("<div>", {"class": "rMidMan", "id": "rMidMan" + i});
 				 var $charity = $("<div>", {"class": "rCharity", "id": "rCharity" + i});
 
+				 var $button1 = $("<div>", {"class": "button1", "id": "button1"+i});
+				 var $button2 = $("<div>", {"class": "button2", "id": "button1"+2});
+
+				 $button1.append($b1);
+				 $button2.append($b2);
 				 //Init
 				 $userName.append( $("<h1>", {"class": "rUser", "id": "rUser" + i}) );
 				 $amount.append( $("<h1>", {"class": "rAmountValue", "id": "rAmountVale" + i}) );
@@ -268,9 +275,14 @@ function creator(){
 				 $divMidMan.append($midMan);
 				 $divMidMan.append($charity);
 
+				 $divButton.append($button1);
+				 $divButton.append($button2);
+
+
 				 $divCard.append($divDescription);
 				 $divCard.append($divDetails);
 				 $divCard.append($divMidMan);
+				 $divCard.append($divButton);
 
 				 $divContainer.append($divCard);
 
@@ -285,7 +297,7 @@ function creator(){
 			//MIDDLE
 			ref.child('bets').once('value',snap=>{
 			    console.log(snap.val());
-
+				var i = 0;
 			    snap.forEach(function(child){
 			        console.log(child.val());
 
@@ -458,95 +470,95 @@ function creator(){
 
 
 
-	//DYNAMICLLY CREATES CARDS FOR MIDDLE ACTIVE BETS
-	//TODO
-	//CHANGE I TO ARRAY SIZE OF ACTIVE BETS
-	for (var i = 0; i < 0; i++) {
-		// var $divUserName = $("<div>", {"class": "userNameL"});
-		// var $divOponentName = $("<div>", {"class": "userNameR"});
-		var $divDescription = $("<div>", {"class": "description"});
-		var $divMiddleMan = $("<div>", {"class": "middleMan"});
-		// var $divAmount = $("<div>", {"class": "amount"});
-		var $divDetails = $("<div>", {"class": "details"});
-
-		var $userName = $("<h3>", {"class": "userNameText"});
-		var $oponentName = $("<h3>", {"class": "oponentNameText"});
-		var $middleManName = $("<h3>", {"class": "middleManText"});
-		var $amount = $("<h3>", {"class": "amountText","id" : "amount" + i});
-		var $description = $("<h3>", {"class" : "descriptionText", "id" : "description" + i});
-
-		//TODO:CHANGE OPPONENT NAME and MIDDLE MAN NAME DYNAMIC
-		$oponentName.append("OPPENT_NAME_AT_I");
-		$userName.append('USERNAME');
-		$middleManName.append("MIDDLE MAN" + i);
-		$description.append("DESCRIPTION" + i);
-		$amount.append("$ " + i);
-		// $divUserName.append($userName);
-		// $divOponentName.append($oponentName);
-		$divDescription.append($description);
-		// $divAmount.append($amount);
-		$divMiddleMan.append($middleManName);
-
-		//TODO: CHANGE DESCRIPTION DYNAMIC
-		//		Change AMOUNT DYNAMIC
-
-		$divDetails.append($userName);
-		$divDetails.append($amount);
-		$divDetails.append($oponentName);
-
-
-		var $div = $("<div>", {id: "card" + i, "class": "card"});
-		var $div2 = $("<div>", {id: "innerCard" + i, "class": "inner"});
-
-		// $div2.append($divDescription);
-
-		// $div2.append($divUserName);
-		// $div2.append($divAmount);
-		// $div2.append($divOponentName);
-
-
-		$div2.append($divDescription);
-		$div2.append($divDetails);
-		$div2.append($divMiddleMan);
-		$div.append($div2);
-		$("#middle").append($div);
-
-
-
-
-	}
-
-
-
-	//Left side
-	for (var i = 0; i < 0; i++) {
-		$container = $("<div>", {"class": "midManContain", "id" : "midManContain" + i});
-		$card = $("<div>", {"class": "midManCard", "id": "midManCard" + i});
-		$user1 = $("<div>", {"class": "minManUser1", "id": "minManUser1" + i});
-		$approve = $("<div>", {"class": "minManApprove", "id": "minManApprove" + i});
-		$user2 = $("<div>", {"class": "minManUser2", "id": "minManUser2" + i});
-
-		//TODO Remove USER1Name  & 2 with actual username
-		$user1.append( $("<h1>", {"class": "minManUser1Text", "id": "minManUser1Text" + i}).append("USER1Name") );
-		$user1.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU1" + i}) );
-
-
-		$user2.append( $("<h1>", {"class": "minManUser2Text", "id": "minManUser2Text" + i}).append("USER2Name") );
-		$user2.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU2" + i}) );
-
-		$approve.append( $("<button>", {"class": "ApproveButton", "id": "ApproveButton" + i}) );
+	// //DYNAMICLLY CREATES CARDS FOR MIDDLE ACTIVE BETS
+	// //TODO
+	// //CHANGE I TO ARRAY SIZE OF ACTIVE BETS
+	// for (var i = 0; i < 0; i++) {
+	// 	// var $divUserName = $("<div>", {"class": "userNameL"});
+	// 	// var $divOponentName = $("<div>", {"class": "userNameR"});
+	// 	var $divDescription = $("<div>", {"class": "description"});
+	// 	var $divMiddleMan = $("<div>", {"class": "middleMan"});
+	// 	// var $divAmount = $("<div>", {"class": "amount"});
+	// 	var $divDetails = $("<div>", {"class": "details"});
+    //
+	// 	var $userName = $("<h3>", {"class": "userNameText"});
+	// 	var $oponentName = $("<h3>", {"class": "oponentNameText"});
+	// 	var $middleManName = $("<h3>", {"class": "middleManText"});
+	// 	var $amount = $("<h3>", {"class": "amountText","id" : "amount" + i});
+	// 	var $description = $("<h3>", {"class" : "descriptionText", "id" : "description" + i});
+    //
+	// 	//TODO:CHANGE OPPONENT NAME and MIDDLE MAN NAME DYNAMIC
+	// 	$oponentName.append("OPPENT_NAME_AT_I");
+	// 	$userName.append('USERNAME');
+	// 	$middleManName.append("MIDDLE MAN" + i);
+	// 	$description.append("DESCRIPTION" + i);
+	// 	$amount.append("$ " + i);
+	// 	// $divUserName.append($userName);
+	// 	// $divOponentName.append($oponentName);
+	// 	$divDescription.append($description);
+	// 	// $divAmount.append($amount);
+	// 	$divMiddleMan.append($middleManName);
+    //
+	// 	//TODO: CHANGE DESCRIPTION DYNAMIC
+	// 	//		Change AMOUNT DYNAMIC
+    //
+	// 	$divDetails.append($userName);
+	// 	$divDetails.append($amount);
+	// 	$divDetails.append($oponentName);
+    //
+    //
+	// 	var $div = $("<div>", {id: "card" + i, "class": "card"});
+	// 	var $div2 = $("<div>", {id: "innerCard" + i, "class": "inner"});
+    //
+	// 	// $div2.append($divDescription);
+    //
+	// 	// $div2.append($divUserName);
+	// 	// $div2.append($divAmount);
+	// 	// $div2.append($divOponentName);
+    //
+    //
+	// 	$div2.append($divDescription);
+	// 	$div2.append($divDetails);
+	// 	$div2.append($divMiddleMan);
+	// 	$div.append($div2);
+	// 	$("#middle").append($div);
+    //
+    //
+    //
+    //
+	// }
 
 
 
-		$card.append($user1);
-		$card.append($approve);
-		$card.append($user2);
-
-		$container.append($card);
-
-		$("#left").append($container);
-
-	}
+	// //Left side
+	// for (var i = 0; i < 0; i++) {
+	// 	$container = $("<div>", {"class": "midManContain", "id" : "midManContain" + i});
+	// 	$card = $("<div>", {"class": "midManCard", "id": "midManCard" + i});
+	// 	$user1 = $("<div>", {"class": "minManUser1", "id": "minManUser1" + i});
+	// 	$approve = $("<div>", {"class": "minManApprove", "id": "minManApprove" + i});
+	// 	$user2 = $("<div>", {"class": "minManUser2", "id": "minManUser2" + i});
+    //
+	// 	//TODO Remove USER1Name  & 2 with actual username
+	// 	$user1.append( $("<h1>", {"class": "minManUser1Text", "id": "minManUser1Text" + i}).append("USER1Name") );
+	// 	$user1.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU1" + i}) );
+    //
+    //
+	// 	$user2.append( $("<h1>", {"class": "minManUser2Text", "id": "minManUser2Text" + i}).append("USER2Name") );
+	// 	$user2.append( $("<input>", {"type": "checkbox", "class": "CheckBox", "id" : "CheckBoxU2" + i}) );
+    //
+	// 	$approve.append( $("<button>", {"class": "ApproveButton", "id": "ApproveButton" + i}) );
+    //
+    //
+    //
+	// 	$card.append($user1);
+	// 	$card.append($approve);
+	// 	$card.append($user2);
+    //
+	// 	$container.append($card);
+    //
+	// 	$("#left").append($container);
+    //
+	// }
 	document.getElementById('logOutFromDash').addEventListener('click',e=>{
   		var auth = firebase.auth();
   		firebase.auth().signOut();
@@ -560,11 +572,11 @@ function creator(){
 
 }
 
-function buttonApprove() {
-	console.log("Approve Bet");
-}
-
-function buttonDecline(str) {
-    console.log("Decline");
-    $(str).remove();
-}
+// function buttonApprove() {
+// 	console.log("Approve Bet");
+// }
+//
+// function buttonDecline(str) {
+//     console.log("Decline");
+//     $(str).remove();
+// }
