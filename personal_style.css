@@ -40,3 +40,18 @@ h1 {
 .card{
     height: 100%;
 }
+.resolvedDiv{
+    float:left;
+    width:33%;
+}
+.amountDiv{
+    float:left;
+    width:33%;
+}
+.unresolvedDiv {
+    float:left;
+    width:33%;
+}
+.descriptDiv,.forgottenDiv,.charityDiv{
+    display:;
+}

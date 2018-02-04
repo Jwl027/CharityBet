@@ -1,19 +1,21 @@
 function createCard() {
     var text = document.getElementById("descript").value;
     var text_2 = document.getElementById("moneyBet").value;
+    var text_3 = document.getElementById("charity").value;
     $container = $("<div>", {"class": "container", "id": "container" + text})
 
     $card = $("<div>", {"class": "card", "id": "card" + text});
 
     $descriptDiv = $("<div>", {"class": "descriptDiv", "id": "descriptDiv" + text});
     $resolvedDiv = $('<div>', {"class": "resolvedDiv", "id": "resolvedDiv"+text});
+    $div = $("<div>", {"class": "forgottenDiv", "id":"forgottenDiv" +text});
     $unresolvedDiv = $('<div>', {"class": "unresolvedDiv", "id": "unresolvedDiv"+text});
     $amountDiv = $("<div>", {"class": "amountDiv", "id": "amountDiv" + text});
-    $timeLeftDiv = $("<div>", {"class": "timeLeftDiv", "id": "timeLeftDiv" + text});
+    $charityDiv = $("<div>", {"class": "charityDiv", "id": "charityDiv" + text});
 
     $descriptText = $("<h1>", {"class": "h1UpText", "id":"h1UpText" + text});
     $amountText = $("<h1>", {"class": "h1MidText", "id":"h1MidText" + text});
-    $timeLeftText = $("<h1>", {"class": "h1LowText", "id":"h1LowText" + text});
+    $chaityText = $("<h1>", {"class": "chaityText", "id":"chaityText" + text});
     $approve = $("<button>", {"class": "approve", "id":"approve" + text});
     $unapprove = $("<button>", {"class": "unapprove", "id":"unapprove" + text});
 
@@ -34,20 +36,21 @@ function createCard() {
 
     $descriptText.append(text);
     $amountText.append(text_2);
-    $timeLeftText.append(countDown());
+    $chaityText.append(text_3);
 
 
     $descriptDiv.append( $descriptText );
     $amountDiv.append( $amountText );
-    $timeLeftDiv.append( $timeLeftText );
+    $charityDiv.append( $chaityText );
     $resolvedDiv.append( $approve );
     $unresolvedDiv.append( $unapprove );
+    $div.append($resolvedDiv);
+    $div.append($amountDiv);
+    $div.append($unresolvedDiv);
 
     $card.append($descriptDiv);
-    $card.append($resolvedDiv);
-    $card.append($amountDiv);
-    $card.append($unresolvedDiv);
-    $card.append($timeLeftDiv);
+    $card.append($div);
+    $card.append($charityDiv);
 
     $container.append($card);
 
