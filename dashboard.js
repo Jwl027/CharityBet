@@ -27,9 +27,9 @@ function creator(){
   				var i = 0;
 
   				snap.forEach(function(child){
-	              
+
 		          requestArray.push(child.key);
-                 
+
 
 				 //Structure
 				 var $divContainer = $("<div>", {"class": "rContainerDiv", "id": "reqBet" + i});
@@ -58,8 +58,8 @@ function creator(){
                     $b1.on("click", function(){
                         str = str.charAt(str.length - 1);
                         $("#reqBet" + str).remove();
-                        
-                        //Need a way to see if this is a middle or a 
+
+                        //Need a way to see if this is a middle or a
                         if(child.child('middle').val()==null){
                         	console.log("this is the mid");
                         	var bettyMan=child.child('betty').val().substring(0,child.child('betty').val().length-4);
@@ -77,20 +77,20 @@ function creator(){
                         firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
 
                         }
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
+
+
                     });
-					
+
 					$b2.on("click", function(){
 						str = str.charAt(str.length - 1);
                         $("#reqBet" + str).remove();
-                        
-                        
+
+
 
                         var betterMan =child.child('better').val().substring(0,child.child('better').val().length-4);
 
@@ -104,7 +104,7 @@ function creator(){
 							getTruth.once("value")
   							.then(function(innerSnap) {
     							//var key = snapshot.key; // "ada"
-    							
+
     							if(innerSnap.child('bets').child(child.key).child('betty').child('accept').val()=='pending'){
     								console.log('pending	of mid');
     								firebase.database().ref().child('users').child(betterMan).child('bets').child(child.key).child('middle').child('accept').set('true');
@@ -127,11 +127,11 @@ function creator(){
     								//price
     								firebase.database().ref().child('users').child(user).child('middleWork').child(child.key).child('price').child('percent').set(child.child('price').child('percent').val());
     								firebase.database().ref().child('users').child(user).child('middleWork').child(child.key).child('price').child('each').set(child.child('price').child('each').val());
-    								//remove from the request block after!	
+    								//remove from the request block after!
     								//firebase.database().ref().child('users').child(midMan).child('requests').child(child.key).remove();
 
     								firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).child('middle').child('accept').set('true');
-    								
+
     								//move bettys data to and actual one
     								firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).child('betty').child('name').set(betterMan);
     								firebase.database().ref().child('users').child(bettyMan).child('bets').child(child.key).child('betty').child('pending').set('true');
@@ -163,7 +163,7 @@ function creator(){
 							getTruth.once("value")
   							.then(function(innerSnap) {
     							//var key = snapshot.key; // "ada"
-    							
+
     							if(innerSnap.child('bets').child(child.key).child('middle').child('accept').val()=='pending'){
     								console.log('pending	in not mid');
     								console.log(innerSnap.child('bets').child(child.key).child(user).child('accept').val());
@@ -190,7 +190,7 @@ function creator(){
     								//price
     								firebase.database().ref().child('users').child(user).child('bets').child(child.key).child('price').child('percent').set(child.child('price').child('percent').val());
     								firebase.database().ref().child('users').child(user).child('bets').child(child.key).child('price').child('each').set(child.child('price').child('each').val());
-    								//remove from the request block after!	
+    								//remove from the request block after!
 
     								firebase.database().ref().child('users').child(midMan).child('middleWork').child(child.key).child('better').child('name').set(child.child('better').val());
     								firebase.database().ref().child('users').child(midMan).child('middleWork').child(child.key).child('better').child('pending').set('true');
@@ -211,7 +211,7 @@ function creator(){
   							});
 
 							//console.log(+"		HEY");
-							
+
 							//firebase.database().ref().child('users').child(user).child('requests').child(child.key).remove();
                         }
 
@@ -232,7 +232,7 @@ function creator(){
                         	}
 						}*/
 
-						
+
 					});
 
 				 var $midMan = $("<div>", {"class": "rMidMan", "id": "rMidMan" + i});
