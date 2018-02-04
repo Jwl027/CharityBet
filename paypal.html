@@ -1,4 +1,4 @@
-// The Paypal API takes care of all payment, we just need to login with the sandbox account
+// The Paypal API takes care of all payment from customer, we just need to login with the sandbox account
 // To do: pass $ amount as a parameter (current default = $0.01)
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -6,6 +6,9 @@
 <div id="paypal-button-container"></div>
 
 <script>
+    var betAmount = document.getElementById("moneyBet");
+    var betPercentage = document.getElementById("percentageBet");
+    var totalBet = betAmount * betPercentage;
 
     // Render the PayPal button
 
@@ -19,7 +22,7 @@
 
         style: {
             label: 'paypal',
-            size:  'medium',    // small | medium | large | responsive
+            size:  'large',    // small | medium | large | responsive
             shape: 'rect',     // pill | rect
             color: 'blue',     // gold | blue | silver | black
             tagline: false    
@@ -37,7 +40,7 @@
                 payment: {
                     transactions: [
                         {
-                            amount: { total: '0.01', currency: 'USD' }
+                            amount: { total: totalBet, currency: 'USD' }
                         }
                     ]
                 }
